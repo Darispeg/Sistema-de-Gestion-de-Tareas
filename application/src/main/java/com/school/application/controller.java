@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class controller {
     @RequestMapping("/hello")
     public String hello(){
-        return "Hola como estas?";
+        return "Inicio del Proyecto 05 de Noviembre de 2020";
     }
 }
