@@ -7,10 +7,10 @@ import com.school.application.model.Curso;
 
 import org.springframework.jdbc.core.RowMapper;
 
-
-/*  Heredamos de RowMapper que Spring tiene impematado
+/*  Heredamos de RowMapper de Spring
     para poder recuperar o mapear los datos enviados desde 
-    la Base de Datos*/
+    la Base de Datos
+*/
 public class CursoMapper implements RowMapper<Curso> {
 
     @Override

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+/* Este es el cuerpo que se tiene para mostrar cuando se utilice la APIREST */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RepBase {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)

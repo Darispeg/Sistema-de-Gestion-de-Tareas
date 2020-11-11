@@ -16,7 +16,10 @@ public class ProfesorMateriaMapper implements RowMapper<ProfesorMateria> {
 
         profesor.setId(rs.getInt("id"));
         profesor.setIdMateria(rs.getInt("idMateria"));
+        profesor.setMateria(rs.getString("materia"));
+        profesor.setParalelo(rs.getString("paralelo"));
         profesor.setIdProfesor(rs.getInt("idProfesor"));
+        profesor.setCi(rs.getInt("ci"));
         profesor.setEstado(rs.getBoolean("estado"));
 
         return profesor;

@@ -11,7 +11,7 @@ public class MateriaMapper implements RowMapper<Materia> {
 
     @Override
     public Materia mapRow(ResultSet rs, int rowNum) throws SQLException {
-        
+
         Materia materia = new Materia();
 
         materia.setIdMateria(rs.getInt("idMateria"));
