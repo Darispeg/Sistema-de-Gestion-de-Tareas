@@ -1,17 +1,19 @@
 package com.school.application.model;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
-
 
 public class Curso {
 
     private long idCurso;
 
+    @Digits(integer = 1, fraction = 1, message = "No puede poner numeros enteros")
     @Positive(message = "Este campo solo admite numeros Positivos")
     private long idEscuela;
 
+    @Digits(integer = 5, fraction = 0, message = "No puede poner numeros enteros")
     @Positive(message = "Este campo solo admite numeros Positivos")
     private long idGrado;
 
@@ -19,7 +21,8 @@ public class Curso {
     @NotNull(message = "Este campo no puede ser nulo")
     private String paralelo;
 
-    @Positive(message = "Este campo solo puede ser positivo")
+    @Digits(integer = 5, fraction = 0, message = "No puede poner numeros decimales")
+    @Positive(message =  "Este campo solo admite numeros Positivos")
     private long gestion;
 
     public long getIdCurso() {

@@ -37,10 +37,9 @@ public class TareaRepository implements TareaRep {
     @Override
     public boolean save(Tarea tarea) {
         try {
-            String sql = String.format("INSERT INTO tarea "+
-            "(idCurso, idMateria, descripcion, fechaFinal, estado) "+
-            "VALUES ('%d', '%d', '%s', '%tF', true)",
-            tarea.getIdTarea(),tarea.getIdMateria(), tarea.getDescripcion(), tarea.getFechaFinal());
+            String fecha = tarea.getFechaFinal().toString();
+            String sql = String.format("INSERT INTO tarea (idCurso, idMateria, descripcion, fechaFinal) "+
+            "VALUES ('%d', '%d', '%s', '%s')", tarea.getIdCurso(), tarea.getIdMateria(), tarea.getDescripcion(), fecha);
             jdbcTemplate.execute(sql);
             return true;
         } catch (Exception e) {

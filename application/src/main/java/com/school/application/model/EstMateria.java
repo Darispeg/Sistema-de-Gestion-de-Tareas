@@ -1,11 +1,18 @@
 package com.school.application.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
 public class EstMateria {
 
     private long id;
 
+	@Positive
+	@NotNull
     private long idEstudiante;
 
+	@Positive
+	@NotNull
     private long idMateria;
 
     private boolean estado;

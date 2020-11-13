@@ -36,8 +36,8 @@ public class EstMateriaRepository implements EstMateriaRep {
     @Override
     public boolean save(EstMateria eMateria) {
         try {
-            String sql = String.format("INSERT INTO estmateria(idEstudiante, idMateria, estado) VALUES ('%d', '%d', '%d')",
-            eMateria.getIdEstudiante(), eMateria.getIdMateria(), eMateria.isEstado());
+            String sql = String.format("INSERT INTO estmateria(idEstudiante, idMateria) VALUES ('%d', '%d')",
+            eMateria.getIdEstudiante(), eMateria.getIdMateria());
             jdbcTemplate.execute(sql);
             return true;
         } catch (Exception e) {

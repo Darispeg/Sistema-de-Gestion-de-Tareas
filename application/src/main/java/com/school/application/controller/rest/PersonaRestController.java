@@ -2,6 +2,8 @@ package com.school.application.controller.rest;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.school.application.model.Persona;
 import com.school.application.model.common.RepBase;
 import com.school.application.repository.Persona.PersonaRepository;
@@ -26,7 +28,7 @@ public class PersonaRestController {
     private PersonaRepository repository;
 
     @PutMapping
-    public ResponseEntity<RepBase> save(@RequestBody Persona persona){
+    public ResponseEntity<RepBase> save(@Valid @RequestBody Persona persona){
         return ResponseEntity.ok(new RepBase(repository.save(persona)));
     }
 

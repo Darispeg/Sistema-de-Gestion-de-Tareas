@@ -1,15 +1,25 @@
 package com.school.application.model;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
 public class ProfesorMateria {
     
     private long id;
 
     private String paralelo;
 
+    @NotNull
+    @Positive
+    @Digits(integer = 5, fraction = 0)
     private long idMateria;
 
     private String materia;
 
+    @NotNull
+    @Positive
+    @Digits(integer = 5, fraction = 0)
     private long idProfesor;
 
     private long ci;

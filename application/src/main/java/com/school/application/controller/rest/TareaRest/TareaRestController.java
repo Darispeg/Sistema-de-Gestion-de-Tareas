@@ -2,6 +2,8 @@ package com.school.application.controller.rest.TareaRest;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.school.application.model.Tarea;
 import com.school.application.model.common.RepBase;
 import com.school.application.repository.Tarea.TareaRepository;
@@ -25,7 +27,7 @@ public class TareaRestController {
     private TareaRepository repository;
 
     @PutMapping
-    public ResponseEntity<RepBase> save(@RequestBody Tarea tarea){
+    public ResponseEntity<RepBase> save(@Valid @RequestBody Tarea tarea){
         return ResponseEntity.ok(new RepBase(repository.save(tarea)));
     }
 

@@ -1,8 +1,10 @@
 package com.school.application.model;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
+
 
 
 public class Persona {
@@ -10,21 +12,31 @@ public class Persona {
     //@Size(min = 7, max = 9, message="Por favor introduzca un CI valido")
     private long ci;
 
-    @NotEmpty(message="Este campo no puede estar vacio")
+    @NotNull
+    @NotBlank
+    @Size(min = 3, max = 25)
     private String nombre;
 
-    @NotEmpty(message="Este campo no puede estar vacio")
+    @NotNull
+    @NotBlank
+    @Size(min = 3, max = 20)
     private String aPaterno;
 
-    @NotEmpty(message="Este campo no puede estar vacio")
+    @NotNull
+    @NotBlank
+    @Size(min = 3, max = 20)
     private String aMaterno;
 
-    @Positive(message = "Este campo solo acepta numeros positivos")
+    @NotNull
+    @Positive
     private long edad;
 
+    @NotBlank
+    @NotNull
+    @Size(min = 1, max = 10)
     private String sexo;
 
-    @Size(min = 8, max=12, message = "Exedio el maximo de caracteres permitidos")
+    @Size(min = 7, max = 12)
     private String telefono;
 
     public long getCi() {

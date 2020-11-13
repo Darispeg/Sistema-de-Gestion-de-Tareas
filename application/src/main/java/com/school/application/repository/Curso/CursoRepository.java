@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
-import javax.validation.Valid;
 
 import com.school.application.mapper.CursoMapper;
 import com.school.application.model.Curso;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.validation.annotation.Validated;
 
 @Repository
 public class CursoRepository implements CursoRep {

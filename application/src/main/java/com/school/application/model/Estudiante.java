@@ -1,27 +1,32 @@
 package com.school.application.model;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 
 public class Estudiante {
+
     private long idEstudiante;
     
-    @Size(min = 7, max = 9, message = "Por favor introduzca un CI valido")
+    @NotNull
+    @Digits(integer = 9, fraction = 0)
     private long ci;
     
+    @Positive
     @NotNull(message = "El Id del Curso es Obligatorio")
     private long idCurso;
     
-    @NotEmpty
-    @Size(max = 60, message = "Exedio el maximo de caracteres para un Email")
+    @NotBlank
     @Email
     private String correo;
     
     @NotEmpty
-    @Size(min = 5, max = 50, message = "Exedio el maximo de caractere para una Contraseña")
+    @Size(min = 5, max = 40)
     private String contrasena;
 
     public long getIdEstudiante() {

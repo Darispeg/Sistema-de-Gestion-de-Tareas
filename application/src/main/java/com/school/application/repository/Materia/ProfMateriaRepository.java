@@ -36,7 +36,7 @@ public class ProfMateriaRepository implements ProfMateriaRep {
     @Override
     public boolean save(ProfesorMateria profMat) {
         try {
-            String sql = String.format("INSERT INTO profesormateria(idMateria, idProfesor, estado) VALUES ('%d', '%d', true)",
+            String sql = String.format("INSERT INTO profesormateria(idMateria, idProfesor) VALUES ('%d', '%d')",
             profMat.getIdMateria(), profMat.getIdProfesor());
             jdbcTemplate.execute(sql);
             return true;

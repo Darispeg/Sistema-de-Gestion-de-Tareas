@@ -10,6 +10,8 @@ import java.util.stream.Stream;
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -20,6 +22,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class FileServiceRepository implements FileService {
+
+    Log log = LogFactory.getLog(getClass());
 
     private final Path root = Paths.get("TareaDocuementos");
 
@@ -44,11 +48,13 @@ public class FileServiceRepository implements FileService {
     @Override
     public void save(int idTarea ,MultipartFile file) {
         try {
+            log.info(idTarea);
             Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
             String name = file.getOriginalFilename().toString();
+            log.info(name);
             String url = "http://localhost:8080/files/" + name;
-            String sql = String.format("INSERT INTO tareadetalle (idTarea, documeneto, url) VALUES ('%d', '%s', '%s')",
-                                        idTarea, name, url);
+            log.info(url);
+            String sql = String.format("INSERT INTO tareadetalle (idTarea, documento, url) VALUES ('%d', '%s', '%s')", idTarea, name, url);
             jdbcTemplate.execute(sql);
         } catch (Exception e) {
             throw new RuntimeException("No se puede guarda el Archivo");

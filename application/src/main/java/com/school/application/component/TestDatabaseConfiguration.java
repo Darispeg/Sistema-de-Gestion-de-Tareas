@@ -7,9 +7,9 @@ import com.school.application.repository.Persona.PersonaRepository;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.stereotype.Component;
+/* import org.springframework.stereotype.Component;
 
-//@Component
+@Component */
 public class TestDatabaseConfiguration {
     
     @Bean
