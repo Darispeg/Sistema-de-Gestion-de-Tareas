@@ -9,9 +9,11 @@ import com.school.application.mapper.ProfesorMateriaMapper;
 import com.school.application.model.ProfesorMateria;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+                    /* VISTA Materia-Profesor */
+/* https://lucid.app/lucidchart/11125235-04a3-4dde-b178-b0e04c149384/edit?page=EedOYkK~5wn-#?folder_id=home&browser=icon */
 
 @Repository
 public class ProfMateriaRepository implements ProfMateriaRep {
@@ -25,14 +27,7 @@ public class ProfMateriaRepository implements ProfMateriaRep {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    public JdbcTemplate getJdbcTemplate() {
-        return jdbcTemplate;
-    }
-
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
-
+    /* Funcion para Insertar o Registrar a un Nuevo Profesor en una Materia */
     @Override
     public boolean save(ProfesorMateria profMat) {
         try {
@@ -45,6 +40,7 @@ public class ProfMateriaRepository implements ProfMateriaRep {
         }
     }
 
+    /* Funcion para cambiar el estado de materia de un Profesor */
     @Override
     public boolean update(ProfesorMateria profMat) {
         if(profMat.getIdMateria() > 0 && profMat.getIdProfesor() > 0) {
@@ -56,22 +52,14 @@ public class ProfMateriaRepository implements ProfMateriaRep {
         return false;
     }
 
+    /* Funcion que devuelve todas las materias que imparte un Profesor */
     @Override
-    public List<ProfesorMateria> findAll(Pageable pageable) {
-        return jdbcTemplate.query("call listar_profMateria()", new ProfesorMateriaMapper());
+    public List<ProfesorMateria> findMateriasProfesor(int ci){
+        Object[] param = new Object[] {ci};
+        return jdbcTemplate.query("call sp_profesorMateria(?)", param, new ProfesorMateriaMapper());
     }
 
-    @Override
-    public ProfesorMateria findId(int id) {
-        return null;
-    }
-
-    @Override
-    public List<ProfesorMateria> findMateriasProfesor(int idProfesor){
-        Object[] param = new Object[] {idProfesor};
-        return jdbcTemplate.query("call SP_profesor_materia(?)", param, new ProfesorMateriaMapper());
-    }
-
+    /* Funcion para eliminar */
     @Override
     public boolean delete(int idProfesor, int idMateria) {
         try {

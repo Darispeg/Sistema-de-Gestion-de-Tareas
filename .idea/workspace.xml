@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e71c3cef-7d46-4b28-9917-53034806e0c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Proyecto.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/PruebaInicio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/controller/rest/TareaRest/RespuestaRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/mapper/RespuestaMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/model/RespuestaTarea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/controller/rest/TareaRest/TareaRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/controller/rest/TareaRest/TareaRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/mapper/CursoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/mapper/CursoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/mapper/MateriaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/mapper/MateriaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/mapper/ProfesorMateriaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/mapper/ProfesorMateriaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/model/Curso.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/model/Curso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/model/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/model/Persona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/model/ProfesorMateria.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/model/ProfesorMateria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/model/common/RepBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/model/common/RepBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/mapper/EscuelaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/mapper/EscuelaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/mapper/TareaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/mapper/TareaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/model/Tarea.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/model/Tarea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/repository/Tarea/TareaRep.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/repository/Tarea/TareaRep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/school/application/repository/Tarea/TareaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/school/application/repository/Tarea/TareaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,11 +31,15 @@
     </option>
   </component>
   <component name="ProjectId" id="1k9aHqIfCwDl3KORTOsu7oeAzyH" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -52,10 +53,21 @@
       <option name="presentableId" value="Default" />
       <updated>1605115176305</updated>
       <workItem from="1605115177374" duration="40000" />
+      <workItem from="1605659064407" duration="151000" />
+      <workItem from="1605659242248" duration="125000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="53" key="#Plugins" timestamp="1605659267059">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="53" key="#Plugins/0.0.1536.824@0.0.1536.824" timestamp="1605659267059" />
   </component>
 </project>

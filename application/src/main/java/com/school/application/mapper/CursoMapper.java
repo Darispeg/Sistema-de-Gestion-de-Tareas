@@ -25,5 +25,4 @@ public class CursoMapper implements RowMapper<Curso> {
 
         return curso;
     }
-    
 }

@@ -5,15 +5,19 @@ import javax.validation.constraints.Positive;
 
 public class EstMateria {
 
-    private long id;
+	private long id;
+	
+	@Positive
+	@NotNull
+	private long idMateria;
+	
+	private String materia; //Solo para vista
 
 	@Positive
 	@NotNull
     private long idEstudiante;
 
-	@Positive
-	@NotNull
-    private long idMateria;
+	private long ciEstudiante; //Solo para vista
 
     private boolean estado;
 
@@ -47,5 +51,21 @@ public class EstMateria {
 
 	public void setEstado(boolean estado) {
 		this.estado = estado;
+	}
+
+	public String getMateria() {
+		return materia;
+	}
+
+	public void setMateria(String materia) {
+		this.materia = materia;
+	}
+
+	public long getCiEstudiante() {
+		return ciEstudiante;
+	}
+
+	public void setCiEstudiante(long ciEstudiante) {
+		this.ciEstudiante = ciEstudiante;
 	}
 }

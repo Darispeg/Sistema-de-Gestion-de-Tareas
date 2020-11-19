@@ -16,6 +16,7 @@ public class TareaMapper implements RowMapper<Tarea> {
         tarea.setIdTarea(rs.getInt("idTarea"));
         tarea.setIdCurso(rs.getInt("idCurso"));
         tarea.setIdMateria(rs.getInt("idMateria"));
+        tarea.setTitulo(rs.getString("titulo"));
         tarea.setDescripcion(rs.getString("descripcion"));
         tarea.setFechaInicio(rs.getDate("fechaInicio"));
         tarea.setFechaFinal(rs.getDate("fechaFinal"));

@@ -8,21 +8,21 @@ public class ProfesorMateria {
     
     private long id;
 
-    private String paralelo;
+    private String paralelo; //Solo para vista
 
     @NotNull
     @Positive
     @Digits(integer = 5, fraction = 0)
     private long idMateria;
 
-    private String materia;
+    private String materia; //Solo para vista
 
     @NotNull
     @Positive
     @Digits(integer = 5, fraction = 0)
     private long idProfesor;
 
-    private long ci;
+    private long ciProfesor; //solo para vista
 
     private boolean estado;
 
@@ -75,10 +75,10 @@ public class ProfesorMateria {
     }
 
     public long getCi() {
-        return ci;
+        return ciProfesor;
     }
 
-    public void setCi(long ci) {
-        this.ci = ci;
+    public void setCi(long ciProfesor) {
+        this.ciProfesor = ciProfesor;
     }
 }

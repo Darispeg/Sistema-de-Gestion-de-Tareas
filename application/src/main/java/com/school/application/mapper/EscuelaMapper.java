@@ -22,5 +22,4 @@ public class EscuelaMapper implements RowMapper<Escuela> {
 
         return escuela;
     }
-    
 }

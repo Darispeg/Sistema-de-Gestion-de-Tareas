@@ -22,6 +22,10 @@ public class Tarea {
     @Positive
     @Digits(integer = 5, fraction = 0)
     private long idMateria;
+
+    @NotBlank
+    @Size(min = 5, max = 80)
+    private String titulo;
     
     @NotBlank
     @Size(min = 5, max = 500)
@@ -88,5 +92,13 @@ public class Tarea {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 }

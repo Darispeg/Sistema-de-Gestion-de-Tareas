@@ -45,4 +45,9 @@ public class TareaRestController {
     public ResponseEntity<Tarea> findById(@PathVariable int id){
         return ResponseEntity.ok(repository.findId(id));
     }
+
+    @PostMapping(value = "/{id}")
+    public ResponseEntity<RepBase> updateState(@PathVariable int id){
+        return ResponseEntity.ok(new RepBase(repository.updateState(id)));
+    }
 }
