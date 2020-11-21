@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" href="../css/document_format.css">
+    <link rel="stylesheet" href="../css/header.css">
+</head>
+<body>
+    <header>
+        <div class="header-info">
+            <div class="info-logo">
+                <div class="logo">
+                    <img src="../assest/brand/brand-logo.jpg" alt="">
+                </div>
+            </div>
+            <div class="info-social">
+                <div class="social-icon-container">
+                    <img src="../assest/icons/facebook.svg" alt="">
+                </div>
+                <div class="social-icon-container">
+                    <img src="../assest/icons/twitter.svg" alt="">
+                </div>
+                <div class="social-icon-container">
+                    <img src="../assest/icons/instagram.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="collapse-icon-container">
+                <img src="../assest//icons/three-points-menu.svg" alt="">
+            </div>
+            <ul>
+                <li>option 1</li>
+                <li>option 2</li>
+                <li>option 3</li>
+            </ul>
+        </div>
+    </header>
+    <script>
+        document.addEventListener("click", (e) => {
+            if (e.target.matches(".collapse-icon-container") || e.target.matches(".collapse-icon-container img")) {
+                document.querySelector(".header-menu").classList.toggle("on-view");
+            }
+        });
+    </script>
+</body>
+</html>
