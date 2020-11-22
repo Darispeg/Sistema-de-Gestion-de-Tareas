@@ -17,7 +17,7 @@ import com.school.application.repository.Tarea.TareaRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 /* import org.springframework.stereotype.Component;
-
+// Habilitar el comentario para empezar el Test
 @Component */
 public class TestDatabaseConfiguration {
     
