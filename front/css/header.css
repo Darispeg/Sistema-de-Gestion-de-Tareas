@@ -1,0 +1,101 @@
+header {
+    background-color: var(--secondary-color);
+    width: 100%;
+}
+header .header-info {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .header-info .info-logo {
+    height: 68%;
+}
+header .header-info .info-logo .logo {
+    height: 100%;
+}
+header .header-info .info-logo .logo img {
+    height: 100%;
+}
+header .header-info .info-social {
+    height: 68%;
+    display: flex;
+    align-items: center;
+}
+header .header-info .info-social .social-icon-container {
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 0.6em;
+    height: 80%;
+    margin-left: 0.6em;
+    background-color: var(--secondary-color);
+}
+header .header-info .info-social .social-icon-container:hover {
+    background-color: var(--secondary-modal-color);
+}
+header .header-info .info-social .social-icon-container img {
+    filter: invert(0.84);
+    height: 100%;
+}
+header .header-menu {
+    padding: 0.4em 0;
+    position: relative;
+    background-color: var(--secondary-modal-color);
+    display: flex;
+    align-items: center;
+}
+header .header-menu .collapse-icon-container {
+    cursor: pointer;
+    height: 40px;
+    padding: 0.4em;
+    display: none;
+    transition: background 0.2s;
+}
+header .header-menu .collapse-icon-container:hover {
+    background-color: var(--secondary-color);
+}
+header .header-menu .collapse-icon-container img {
+    filter: invert(0.84);
+    height: 100%;
+}
+header .header-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    display: flex;
+    align-items: center;
+}
+header .header-menu ul li {
+    color: var(--white-color);
+    cursor: pointer;
+    background-color: var(--secondary-modal-color);
+    padding: 0.54em;
+    transition: background 0.2s;
+}
+header .header-menu ul li:hover {
+    background-color: var(--secondary-color);
+}
+header .header-menu.on-view ul {
+    display: block;
+}
+
+@media screen and (max-width: 580px) {
+    header .header-menu {
+        justify-content: flex-end;
+    }
+    header .header-menu .collapse-icon-container {
+        display: block;
+    }
+    header .header-menu ul {
+        display: none;
+        margin-top: 0.4em;
+        position: absolute;
+        top: 40px;
+
+        flex-direction: column;
+    }
+    header .header-menu ul li {
+        min-width: 140px;
+    }
+}

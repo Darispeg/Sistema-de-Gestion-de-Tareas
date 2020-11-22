@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page model</title>
+    <link rel="stylesheet" href="../css/document_format.css">
+    <link rel="stylesheet" href="../css/page-model.css">
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="header-info">
+            <div class="info-logo">
+                <div class="logo">
+                    <img src="../assets/brand/brand-logo.jpg" alt="">
+                </div>
+            </div>
+            <div class="info-social">
+                <div class="social-icon-container">
+                    <img src="../assets/icons/facebook.svg" alt="">
+                </div>
+                <div class="social-icon-container">
+                    <img src="../assets/icons/twitter.svg" alt="">
+                </div>
+                <div class="social-icon-container">
+                    <img src="../assets/icons/instagram.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="collapse-icon-container">
+                <img src="../assets//icons/three-points-menu.svg" alt="">
+            </div>
+            <ul>
+                <li>option 1</li>
+                <li>option 2</li>
+                <li>option 3</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- main -->
+    <main></main>
+
+    <!-- footer -->
+    <footer>
+        <section class="brand-info">
+            <div class="social">
+                <h3>information</h3>
+                <ul class="social-info">
+                    <li><a href="#">no se que poner aca</a></li>
+                    <li><a href="#">no se que poner aca</a></li>
+                    <li><a href="#">no se que poner aca</a></li>
+                </ul>
+                <h3>follow us</h3>
+                <ul class="social-icons">
+                    <li class="li-facebook"><a href="#"><img src="../assets/icons/facebook.svg" alt="facebook"></a></li>
+                    <li class="li-twitter"><a href="#"><img src="../assets/icons/twitter.svg" alt="twitter"></a></li>
+                    <li class="li-instagram"><a href="#"><img src="../assets/icons/instagram.svg" alt="instagram"></a></li>
+                    <li class="li-github"><a href="#"><img src="../assets/icons/github.svg" alt="github"></a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="../assets/brand/brand-logo.jpg" alt="">
+            </div>
+        </section>
+    </footer>
+
+
+    <!-- header menu event -->
+    <script>
+        document.addEventListener("click", (e) => {
+            if (e.target.matches(".collapse-icon-container") || e.target.matches(".collapse-icon-container img")) {
+                document.querySelector(".header-menu").classList.toggle("on-view");
+            }
+        });
+    </script>
+
+
+</body>
+</html>
