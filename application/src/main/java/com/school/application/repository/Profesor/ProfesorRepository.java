@@ -47,9 +47,9 @@ public class ProfesorRepository implements ProfesorRep {
 
     @Override
     public boolean update(Profesor profesor) {
-        if(profesor.getIdProfesor() > 0) {
-            String sql = String.format("UPDATE profesor SET correo='%s', contrasena='%s' WHERE idProfesor = '%d'",
-            profesor.getCorreo(), profesor.getContrasena(), profesor.getIdProfesor());
+        if(profesor.getIdProfesor() > 0 || profesor.getCi() > 0) {
+            String sql = String.format("UPDATE profesor SET correo='%s', contrasena='%s' WHERE ci = '%d'",
+            profesor.getCorreo(), profesor.getContrasena(), profesor.getCi());
             jdbcTemplate.execute(sql);
             return true;
         }

@@ -3,8 +3,8 @@ package com.school.application.repository;
 import java.util.List;
 
 import com.school.application.component.TestDatabaseConfiguration;
-import com.school.application.model.Persona;
-import com.school.application.repository.Persona.PersonaRepository;
+import com.school.application.model.Materia;
+import com.school.application.repository.Materia.MateriaRepository;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -16,84 +16,80 @@ import org.springframework.test.context.ContextConfiguration;
 
 @SpringBootTest
 @ContextConfiguration(classes = {TestDatabaseConfiguration.class})
-public class PersonaTest {
+public class MateriaTest {
     
     @Autowired
-    private PersonaRepository repository;
+    private MateriaRepository repository;
 
     Log log = LogFactory.getLog(getClass());
-        
-    Persona persona = new Persona();
-    
+
     @Test
     public void saveTest(){
         try {
-            persona.setNombre("New");
-            persona.setaPaterno("New");
-            persona.setaMaterno("Test");
-            persona.setEdad(32);
-            persona.setSexo("H");
-            persona.setTelefono("44444444");
-            boolean result = repository.save(persona);
-
+            Materia materia = new Materia();
+            materia.setIdCurso(1);
+            materia.setNombre("Lenguaje");
+            materia.setDescripcion("Comunicacion Social");
+    
+            boolean result = repository.save(materia);
+    
             if(!result)
             {
                 throw new RuntimeException("\n\n\t\t***************************** No paso el test Save ***************************************** \n");
             }
             log.info("\n\n\t\t-------------------------------- Paso el test save ------------------------------------------\n");
-        } catch(RuntimeException e){
-            throw new RuntimeException("Error en el test Update Persona");
-        }  
+        } catch (RuntimeException e) {
+            throw new RuntimeException("\n\n\t\t***************************** No paso el test Save ***************************************** \n" + e);
+        }
     }
 
     @Test
     public void updateTest(){
         try {
-            persona.setCi(101);
-            persona.setNombre("Update");
-            persona.setaPaterno("Test");
-            persona.setaMaterno("Test");
-            persona.setEdad(32);
-            persona.setSexo("H");
-            persona.setTelefono("44444444");
-            boolean result = repository.update(persona);
+            Materia materia = new Materia();
 
+            materia.setIdMateria(5);
+            materia.setNombre("Lenguaje");
+            materia.setDescripcion("Update");
+
+            boolean result = repository.update(materia);
+            
             if(!result)
             {
                 throw new RuntimeException("\n\n\t\t***************************** No paso el test Update ***************************************** \n");
             }
             log.info("\n\n\t\t-------------------------------- Paso el test Update ------------------------------------------\n");
-        } catch(RuntimeException e){
-            throw new RuntimeException("\n\n\t\t***************************** No paso el test Save ***************************************** \n" + e);
-        }  
+        } catch (RuntimeException e) {
+            throw new RuntimeException("\n\n\t\t***************************** No paso el test Update ***************************************** \n" + e);
+        }
     }
 
     @Test
     public void findAllTest(){
-        SpringDataWebProperties.Pageable pageable = new SpringDataWebProperties.Pageable();
-        try{
-            List<Persona> all = repository.findAll(pageable);
+        try {
+            SpringDataWebProperties.Pageable pageable = new SpringDataWebProperties.Pageable();
+            List<Materia> all = repository.findAll(pageable);
             if(all.isEmpty()){
                 log.info("No tiene ningun elemento de esta tabla cargado en la base de datos");
             }else{
-                for (Persona p : all) {
-                    log.info(p.getCi() + " : " + p.getNombre());
-                }    
-            }        
-            log.info("\n\n\t\t-------------------------------- Paso el test findAll ------------------------------------------\n");      
+                for (Materia materia : all) {
+                    log.info(materia.getIdMateria() + " : " + materia.getNombre());
+                }            
+            }
+            log.info("\n\n\t\t-------------------------------- Paso el test findAll ------------------------------------------\n");            
         } catch (RuntimeException e) {
             throw new RuntimeException("\n\n\t\t***************************** No paso el test findAll ***************************************** \n" + e);
         }
     }
 
     @Test
-    public void findById(){
+    public void findByIdTest(){
         try {
-            Persona find = repository.findId(101);
+            Materia find = repository.findId(4);
             if(find == null){
                 log.info("No se encontro ningun curso con este ID");
             }else{
-                log.info(find.getCi() + " : " + find.getNombre());
+                log.info(find.getIdMateria() + " : " + find.getNombre());
             }
             log.info("\n\n\t\t-------------------------------- Paso el test findById ------------------------------------------\n");
         } catch (RuntimeException e) {

@@ -48,8 +48,8 @@ public class MateriaRepository implements MateriaRep {
     @Override
     public boolean update(Materia materia) {
         if(materia.getIdMateria() > 0) {
-            String sql = String.format("UPDATE materia SET idCurso='%d', nombre='%s', descripcion='%s' WHERE idMateria='%d'",
-            materia.getIdMateria(), materia.getNombre(), materia.getDescripcion(), materia.getIdMateria());
+            String sql = String.format("UPDATE materia SET nombre='%s', descripcion='%s' WHERE idMateria='%d'",
+            materia.getNombre(), materia.getDescripcion(), materia.getIdMateria());
             jdbcTemplate.execute(sql);
             return true;
         }

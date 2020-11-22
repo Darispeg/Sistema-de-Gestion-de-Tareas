@@ -37,6 +37,4 @@ public class TareaMateriaRepository implements TareaMateriaRep {
         Object[] param = new Object[]{materia};
         return jdbcTemplate.query("call sp_tareasMateria(?)", param, new TareaMateriaMapper());
     }
-
-
 }

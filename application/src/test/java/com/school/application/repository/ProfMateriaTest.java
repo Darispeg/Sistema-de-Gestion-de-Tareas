@@ -3,36 +3,34 @@ package com.school.application.repository;
 import java.util.List;
 
 import com.school.application.component.TestDatabaseConfiguration;
-import com.school.application.model.Curso;
-import com.school.application.repository.Curso.CursoRepository;
+import com.school.application.model.vistaModel.ProfesorMateria;
+import com.school.application.repository.Materia.ProfMateriaRepository;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 @SpringBootTest
 @ContextConfiguration(classes = {TestDatabaseConfiguration.class})
-public class CursoTest {
+public class ProfMateriaTest {
     
+        
     @Autowired
-    private CursoRepository repository;
+    private ProfMateriaRepository repository;
 
     Log log = LogFactory.getLog(getClass());
 
     @Test
     public void saveTest(){
         try {
-            Curso curso = new Curso();
-            curso.setIdEscuela(1);
-            curso.setIdGrado(2);
-            curso.setParalelo("5°A");
-            curso.setGestion(2020);
+            ProfesorMateria pMateria = new ProfesorMateria();
+            pMateria.setIdMateria(5);
+            pMateria.setIdProfesor(101);
     
-            boolean result = repository.save(curso);
+            boolean result = repository.save(pMateria);
     
             if(!result)
             {
@@ -47,11 +45,11 @@ public class CursoTest {
     @Test
     public void updateTest(){
         try {
-            Curso curso = new Curso();
-            curso.setIdCurso(8);
-            curso.setParalelo("XD");
-            curso.setGestion(2021);
-            boolean result = repository.update(curso);
+            ProfesorMateria pMateria = new ProfesorMateria();
+            pMateria.setIdMateria(5);
+            pMateria.setIdProfesor(101);
+
+            boolean result = repository.update(pMateria);
             
             if(!result)
             {
@@ -64,35 +62,19 @@ public class CursoTest {
     }
 
     @Test
-    public void findAllTest(){
+    public void findProfesorMateriaTest(){
         try {
-            SpringDataWebProperties.Pageable pageable = new SpringDataWebProperties.Pageable();
-            List<Curso> all = repository.findAll(pageable);
+            List<ProfesorMateria> all = repository.findMateriasProfesor(126);
             if(all.isEmpty()){
                 log.info("No tiene ningun elemento de esta tabla cargado en la base de datos");
             }else{
-                for (Curso curso : all) {
-                    log.info(curso.getIdCurso() + " : " + curso.getParalelo());
+                for (ProfesorMateria pMateria: all) {
+                    log.info(pMateria.getMateria() + " : " + pMateria.getCi());
                 }            
             }
-            log.info("\n\n\t\t-------------------------------- Paso el test findAll ------------------------------------------\n");            
+            log.info("\n\n\t\t-------------------------------- Paso el test findEstudiante ------------------------------------------\n");            
         } catch (RuntimeException e) {
-            throw new RuntimeException("\n\n\t\t***************************** No paso el test findAll ***************************************** \n" + e);
-        }
-    }
-
-    @Test
-    public void findByIdTest(){
-        try {
-            Curso find = repository.findId(8);
-            if(find == null){
-                log.info("No se encontro ningun curso con este ID");
-            }else{
-                log.info(find.getIdCurso() + " : " + find.getParalelo());
-            }
-            log.info("\n\n\t\t-------------------------------- Paso el test findById ------------------------------------------\n");
-        } catch (RuntimeException e) {
-            throw new RuntimeException("\n\n\t\t***************************** No paso el test findById ***************************************** \n" + e);
+            throw new RuntimeException("\n\n\t\t***************************** No paso el test findEstudiante ***************************************** \n" + e);
         }
     }
 }

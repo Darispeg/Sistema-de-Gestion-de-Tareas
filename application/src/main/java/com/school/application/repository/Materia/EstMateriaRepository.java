@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import com.school.application.mapper.EstMateriaMapper;
-import com.school.application.model.EstMateria;
+import com.school.application.model.vistaModel.EstMateria;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

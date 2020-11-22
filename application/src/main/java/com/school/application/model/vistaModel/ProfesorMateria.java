@@ -1,4 +1,4 @@
-package com.school.application.model;
+package com.school.application.model.vistaModel;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;

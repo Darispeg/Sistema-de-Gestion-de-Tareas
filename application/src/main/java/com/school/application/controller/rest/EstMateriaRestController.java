@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.school.application.model.EstMateria;
+import com.school.application.model.vistaModel.EstMateria;
 import com.school.application.model.common.RepBase;
 import com.school.application.repository.Materia.EstMateriaRepository;
 

@@ -3,30 +3,30 @@ package com.school.application.model;
 import java.util.Date;
 
 public class RespuestaTarea {
-    
+
     private long idRespuesta;
 
-    private long idTarea;
+    private long idTarea; 
+
+    private String titulo;     //   Solo para la vista Respuestas Tarea
     
     private long idEstudiante;
+
+    private String nombre;   //   Solo para la vista Respuestas Tarea
+
+    private String aPaterno;    //   Solo para la vista Respuestas Tarea
+
+    private String aMaterno;    //   Solo para la vista Respuestas Tarea
     
-    private Date fechaRespuesta;
+    private Date fechaRespuesta; // valor por defecto en la base de Datos
     
     private String documento;
     
     private String url;
     
-    private float nota;
+    private double nota; // valor por defecto null, lo modifica un profesor
     
-    private String comentario;
-
-    public long getIdRespuesta() {
-        return idRespuesta;
-    }
-
-    public void setIdRespuesta(long idRespuesta) {
-        this.idRespuesta = idRespuesta;
-    }
+    private String comentario; // valor por defecto null, lo modifica un profesor
 
     public long getIdTarea() {
         return idTarea;
@@ -68,11 +68,11 @@ public class RespuestaTarea {
         this.url = url;
     }
 
-    public float getNota() {
+    public double getNota() {
         return nota;
     }
 
-    public void setNota(float nota) {
+    public void setNota(double nota) {
         this.nota = nota;
     }
 
@@ -82,5 +82,46 @@ public class RespuestaTarea {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getaPaterno() {
+        return aPaterno;
+    }
+
+    public void setaPaterno(String aPaterno) {
+        this.aPaterno = aPaterno;
+    }
+
+    public String getaMaterno() {
+        return aMaterno;
+    }
+
+    public void setaMaterno(String aMaterno) {
+        this.aMaterno = aMaterno;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public long getIdRespuesta() {
+        return idRespuesta;
+    }
+
+    public void setIdRespuesta(long idRespuesta) {
+        this.idRespuesta = idRespuesta;
     }
 }

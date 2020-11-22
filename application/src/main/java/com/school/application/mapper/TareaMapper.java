@@ -12,7 +12,7 @@ public class TareaMapper implements RowMapper<Tarea> {
     @Override
     public Tarea mapRow(ResultSet rs, int rowNum) throws SQLException {
         Tarea tarea = new Tarea();
-        
+
         tarea.setIdTarea(rs.getInt("idTarea"));
         tarea.setIdCurso(rs.getInt("idCurso"));
         tarea.setIdMateria(rs.getInt("idMateria"));

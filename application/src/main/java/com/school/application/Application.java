@@ -2,6 +2,7 @@ package com.school.application;
 
 import javax.annotation.Resource;
 
+import com.school.application.repository.Tarea.service.FileRespuesta;
 import com.school.application.repository.Tarea.service.FileService;
 
 import org.apache.commons.logging.LogFactory;
@@ -20,6 +21,9 @@ public class Application implements CommandLineRunner{
 	@Resource
 	private FileService fileService;
 
+	@Resource
+	private FileRespuesta fileRespuesta;
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
@@ -27,6 +31,7 @@ public class Application implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 /* 		fileService.init(); */
+/*      fileRespuesta.init(); */
 		LogFactory.getLog(getClass()).info(environment.getProperty("spring.datasource.data-username"));
 	}
 }

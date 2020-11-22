@@ -1,8 +1,13 @@
 package com.school.application.repository.Tarea.respuestas;
 
-import com.school.application.model.RespuestaTarea;
-import com.school.application.repository.RepositoryCommon;
+import java.util.List;
 
-public interface RespuestaRep extends RepositoryCommon<RespuestaTarea> {
-    
+import com.school.application.model.RespuestaTarea;
+
+public interface RespuestaRep  {
+    public List<RespuestaTarea> findAllRespuestas(int idTarea);
+
+    public List<RespuestaTarea> findRespuestaEstudiante(int idTarea, int idEstudiante);
+
+    public boolean calificarTarea(RespuestaTarea rTarea);
 }

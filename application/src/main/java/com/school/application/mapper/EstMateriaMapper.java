@@ -3,7 +3,7 @@ package com.school.application.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.school.application.model.EstMateria;
+import com.school.application.model.vistaModel.EstMateria;
 
 import org.springframework.jdbc.core.RowMapper;
 

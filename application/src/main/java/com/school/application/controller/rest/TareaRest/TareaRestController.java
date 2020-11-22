@@ -6,6 +6,8 @@ import javax.validation.Valid;
 
 import com.school.application.model.Tarea;
 import com.school.application.model.common.RepBase;
+import com.school.application.model.vistaModel.DetalleTarea;
+import com.school.application.repository.Tarea.DetalleTareaRepository;
 import com.school.application.repository.Tarea.TareaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class TareaRestController {
     
     @Autowired
     private TareaRepository repository;
+
+    @Autowired
+    private DetalleTareaRepository detalleRepository;
 
     @PutMapping
     public ResponseEntity<RepBase> save(@Valid @RequestBody Tarea tarea){
@@ -49,5 +54,12 @@ public class TareaRestController {
     @PostMapping(value = "/{id}")
     public ResponseEntity<RepBase> updateState(@PathVariable int id){
         return ResponseEntity.ok(new RepBase(repository.updateState(id)));
+    }
+
+    /* Para la vista Detalles de Tarea */
+    /* https://lucid.app/lucidchart/11125235-04a3-4dde-b178-b0e04c149384/edit?page=dHdO1Vea6BbX#?folder_id=home&browser=icon */
+    @GetMapping(value = "/detalle/{idTarea}")
+    public ResponseEntity<DetalleTarea> findDetalleTarea(@PathVariable int idTarea){
+        return ResponseEntity.ok().body(detalleRepository.findTarea(idTarea));
     }
 }
