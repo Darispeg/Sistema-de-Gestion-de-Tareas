@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../css/document_format.css">
+    <link rel="stylesheet" href="../css/page-model.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" media='all' href="../assets/style/normalize.css" type="text/css" />
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+    crossorigin="anonymous"
+    type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" media='all' href="../assets/style/min1200px.css" type="text/css" />
+
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="header-info">
+            <div class="info-logo">
+                <div class="logo">
+                    <img src="../assets/brand/brand-logo.jpg" alt="">
+                </div>
+            </div>
+            <div class="info-social">
+                <div class="social-icon-container">
+                    <img src="../assets/icons/facebook.svg" alt="">
+                </div>
+                <div class="social-icon-container">
+                    <img src="../assets/icons/twitter.svg" alt="">
+                </div>
+                <div class="social-icon-container">
+                    <img src="../assets/icons/instagram.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="collapse-icon-container">
+                <img src="../assets//icons/three-points-menu.svg" alt="">
+            </div>
+            <ul>
+                <li>Inicio</li>
+                <li>Materia </li>
+                <li>Tarea</li>
+                <li>Mensaje</li>
+                <li>Perfil</li>
+            </ul>
+        </div>
+    </header>
+
+    
+
+    <!-- main -->
+    <main>
+        
+          <!--botones-->
+          <div role="main-content" class="task_container">
+            <!-- Right Sidebar -->
+            <div class="rightSideBar">
+              <!--Create button-->
+              <div class="sideBarElement">
+                <button
+                  type="button"
+                  class="btn"
+                  data-toggle="modal"
+                  data-target="#taskModal"
+                  id="create_btn"
+                >
+                  +
+                </button>
+              </div>
+    
+            </div>
+      
+            <!-- Task List Display -->
+            <div id="accordion">
+              <h3 class="today">Thursday, Sep 3, 2020</h3>
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <!--Encabezado de la tabla de lista de tareas-->
+                  <div
+                    class="task-header row"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    <div class="col-2">
+                      <p class="text-center">Curso</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="text-center">Materia</p>
+                      </div>
+                    <div class="col-3">
+                      <p class="text-center">Description</p>
+                    </div>
+                   
+                    <div class="col-2">
+                      <p class="text-center">Fecha Entrega</p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-center">Estado</p>
+                    </div>
+                  </div>
+                </div>
+      
+                <div
+                  id="collapseOne"
+                  class="collapse show"
+                  aria-labelledby="headingOne"
+                  data-parent="#accordion"
+                >
+                  <div class="card-body" id="tasks">
+                    <!-- renderTask here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+           <!--Crear tablas-->
+        <!-- ======================================================= Modal Body============================================== -->
+        <div class="modal fade" id="taskModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+      
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal_title">Crear Tarea</h5>
+                  <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                  </button>
+                </div>
+      
+                <div class="modal-body" id="task-modal">
+                  <form id="task-form" nameclass="form">
+                       <!-- cursos -->
+    
+                    <div class="col-5">
+                        <label for="curso" class="col-4 col-form-label"
+                          >Curso</label
+                        >
+                        <select id="Curso" class="form-control">
+                          <option> 2"A"</option>
+                          <option>3"B"</option>
+                          <option>1"C"</option>
+                          <option>2"B"</option>
+                        </select>
+                        <div class="valid-feedback">seleccione un  curso!</div>
+                        <div class="invalid-feedback">Selecion un curso!</div>
+                      </div>
+     <!-- selecione una materia -->
+                      <div class="form-group">
+                        <label for="curso" class="col-4 col-form-label">Materia</label
+                        >
+                        <select id="Curso" class="form-control">
+                          <option>Cosmos y Pensamiento</option>
+                          <option>Comunidad y Sociedad</option>
+                          <option>vida, tierra y Territorio</option>
+                          
+                        </select>
+                        <div class="valid-feedback">seleccione una materia</div>
+                        <div class="invalid-feedback">Materia !</div>
+                      </div>
+    
+                    <!-- task name  -->
+                    <div class="form-group">
+                      <label for="taskName">Nombre de la tarea</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="taskName"
+                        placeholder="Enter Task Name"
+                      />
+                      <!-- <div class="valid-feedback">
+                          Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                          Task name can't be empty, minimun 8 character!
+                        </div> -->
+                      <p id="err"></p>
+                    </div>
+                    <!-- Task Description -->
+                    <div class="form-group">
+                      <label for="description">Descripcion</label>
+                      <textarea
+                        class="form-control"
+                        id="description"
+                        rows="2"
+                      ></textarea>
+                      <p id="err"></p>
+                      <!-- <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Task description can't be empty, minimum 15 character!
+                      </div> -->
+                    </div>
+      <!-- agregar archivo-->
+                    <div class="drag-drop">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+                        <label for="#elegir">Elige el archivo a subir: </label>
+                        <input id="elegir" name="uploadedfile" type="file" /><br />
+                        </div>
+                    <!-- fecha-->
+                    <div class="row form-group">
+                      <div class="col-7">
+                        <label for="date" class="col-4 col-form-label">Fecha </label>
+                        <div>
+                          <input
+                            class="form-control form-group"
+                            type="date"
+                            id="date"
+                          />
+                          <p id="err"></p>
+                          <!-- <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                          <div class="invalid-feedback">
+                            Date can't be empty!
+                          </div> -->
+                        </div>
+                      </div>
+      
+                      <!-- estado  -->
+                      <div class="col-5">
+                        <label for="status" class="col-4 col-form-label"
+                          >Status</label
+                        >
+                        <select id="status" class="form-control">
+                          <option>"1opcion"</option>
+                          <option>"2opcion"</option>
+                          <option>"3opcion"</option>
+                        
+                        </select>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Selecione un estado!</div>
+                      </div>
+                    </div>
+                    </div>
+                  </form>
+                  <div class="modal-footer">
+                    <button
+                      class="btn"
+                      data-dismiss="modal"
+                      id="task_modal_save"
+                      type="submit"
+                    >
+                     Agregar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              <!-- Eliminar modal de confirmación -->
+        <div id="deleteConfirmationModal" class="modal fade">
+            <div class="modal-dialog modal-confirm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Estas seguro?</h4>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-hidden="true"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                   
+    ¿Realmente desea eliminar este registro? Este proceso no puede ser
+    deshecho.
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-info" data-dismiss="modal">
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    id="confirm-to-delete-btn"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Onload message if there is no task  -->
+          <div id="askToCreateTask" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-hidden="true"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    Click "+" to create your first task
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+      
+          <!-- JS, Popper.js, and jQuery -->
+          <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"
+          ></script>
+    
+          
+
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <section class="brand-info">
+            <div class="social">
+                <h3>information</h3>
+                <ul class="social-info">
+                    <li><a href="#">no se que poner aca</a></li>
+                    <li><a href="#">no se que poner aca</a></li>
+                    <li><a href="#">no se que poner aca</a></li>
+                </ul>
+                <h3>follow us</h3>
+                <ul class="social-icons">
+                    <li class="li-facebook"><a href="#"><img src="../assets/icons/facebook.svg" alt="facebook"></a></li>
+                    <li class="li-twitter"><a href="#"><img src="../assets/icons/twitter.svg" alt="twitter"></a></li>
+                    <li class="li-instagram"><a href="#"><img src="../assets/icons/instagram.svg" alt="instagram"></a></li>
+                    <li class="li-github"><a href="#"><img src="../assets/icons/github.svg" alt="github"></a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="../assets/brand/brand-logo.jpg" alt="">
+            </div>
+        </section>
+    </footer>
+
+
+    <!-- header menu event -->
+    <script>
+        document.addEventListener("click", (e) => {
+            if (e.target.matches(".collapse-icon-container") || e.target.matches(".collapse-icon-container img")) {
+                document.querySelector(".header-menu").classList.toggle("on-view");
+            }
+        });
+    </script>
+
+
+</body>
+</html>
