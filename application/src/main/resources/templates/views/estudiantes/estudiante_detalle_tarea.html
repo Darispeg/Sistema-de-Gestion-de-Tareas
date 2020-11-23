@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estudiante detalle tarea</title>
-    <link rel="stylesheet" href="../../css/document_format.css">
-    <link rel="stylesheet" href="../../css/estudiante_detalle_tarea.css">
+    <link rel="stylesheet" th:href="@{/css/document_format.css}" href="/application/src/main/resources/static/css/document_format.css" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/estudiante_detalle_tarea.css}" href="/application/src/main/resources/static/css/estudiante_detalle_tarea.css" type="text/css">
+
 </head>
 <body>
     <!-- header -->
@@ -13,24 +14,24 @@
         <div class="header-info">
             <div class="info-logo">
                 <div class="logo">
-                    <img src="../../assets/brand/brand-logo.jpg" alt="">
+                    <img src="/assets/brand/brand-logo.jpg" alt="">
                 </div>
             </div>
             <div class="info-social">
                 <div class="social-icon-container">
-                    <img src="../../assets/icons/facebook.svg" alt="">
+                    <img src="/assets/icons/facebook.svg" alt="">
                 </div>
                 <div class="social-icon-container">
-                    <img src="../../assets/icons/twitter.svg" alt="">
+                    <img src="/assets/icons/twitter.svg" alt="">
                 </div>
                 <div class="social-icon-container">
-                    <img src="../../assets/icons/instagram.svg" alt="">
+                    <img src="/assets/icons/instagram.svg" alt="">
                 </div>
             </div>
         </div>
         <div class="header-menu">
             <div class="collapse-icon-container">
-                <img src="../../assets//icons/three-points-menu.svg" alt="">
+                <img src="/assets//icons/three-points-menu.svg" alt="">
             </div>
             <ul>
                 <li>Materia</li>
@@ -45,22 +46,38 @@
         <section class="first-section">
             <h2 class="tittle">Detalle tarea</h2>
             <div class="card-container">
-                <div class="card">
-                    <h2 class="card-tittle">card tittle</h2>
+                <div th:each="detalle : ${tareaDetalle}" class="card">
+                    <h2 th:text="*{detalle.titulo}" class="card-tittle">card tittle</h2>
                     <div class="card-info">
-                        <p>detalledetalledetalle 1</p>
-                        <p>detalledetalledetalle 2</p>
-                        <p>detalledetalledetalle 3</p>
-                        <p>detalledetalledetalle 4</p>
+                        <p th:text="*{detalle.descripcion}"></p>
+                        <br>
+                        <!-- Icono de Word con la url de descarga del documento -->
+                        <div>
+                            <img src="/assets/icons/ico_word.png" height="30" width="30">
+                            <a th:text="${detalle.documento}" th:href="${detalle.url}"></a>
+                        </div>
+                        <br>
+                        <!-- Hacer una Tabla para mejorar la presentacion -->
+                        <div>
+                            <p>Fecha de Inicio: </p>
+                            <p th:text="*{detalle.fechaInicio}"></p>
+                        </div>
+                        <br>  
+                        <div>
+                            <p>Fecha de Entrega: </p>
+                            <p th:text="*{detalle.fechaFinal}"></p>
+                        </div>                         
+                        <!-- -------------------------------------------  -->
                     </div>
                 </div>
+
                 <div class="form-container">
                     <h2 class="form-tittle">Entregar tarea</h2>
                     <form class="form" action="#">
                         <div class="input-file-container">
                             <input type="file" id="file-input" hidden>
-                            <label for="file-input">agregar archivo</label>
-                            <p>ruta</p>
+                            <label for="file-input">Agregar Archivo</label>
+                            <p>seleccionar Archivo</p>
                         </div>
                         <div class="buttons-container">
                             <input type="submit" value="Subir">
@@ -84,14 +101,14 @@
                 </ul>
                 <h3>follow us</h3>
                 <ul class="social-icons">
-                    <li class="li-facebook"><a href="#"><img src="../../assets/icons/facebook.svg" alt="facebook"></a></li>
-                    <li class="li-twitter"><a href="#"><img src="../../assets/icons/twitter.svg" alt="twitter"></a></li>
-                    <li class="li-instagram"><a href="#"><img src="../../assets/icons/instagram.svg" alt="instagram"></a></li>
-                    <li class="li-github"><a href="#"><img src="../../assets/icons/github.svg" alt="github"></a></li>
+                    <li class="li-facebook"><a href="#"><img src="/assets/icons/facebook.svg" alt="facebook"></a></li>
+                    <li class="li-twitter"><a href="#"><img src="/assets/icons/twitter.svg" alt="twitter"></a></li>
+                    <li class="li-instagram"><a href="#"><img src="/assets/icons/instagram.svg" alt="instagram"></a></li>
+                    <li class="li-github"><a href="#"><img src="/assets/icons/github.svg" alt="github"></a></li>
                 </ul>
             </div>
             <div class="logo">
-                <img src="../assets/brand/brand-logo.jpg" alt="">
+                <img src="/assets/brand/brand-logo.jpg" alt="">
             </div>
         </section>
     </footer>

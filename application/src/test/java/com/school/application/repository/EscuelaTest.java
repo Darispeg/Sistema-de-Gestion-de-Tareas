@@ -89,7 +89,7 @@ public class EscuelaTest {
     @Test
     public void findById(){
         try {
-            Escuela find = repository.findId(3);
+            Escuela find = repository.findId(1);
             if(find == null){
                 log.info("No se encontro ningun curso con este ID");
             }else{
