@@ -1,0 +1,376 @@
+/* Attribute
+  Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> 
+  from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> */
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+html,
+body {
+  font-family: sans-serif;
+  height: 100vh;
+  font-size: 14px;
+}
+
+/* Normal button */
+.btn {
+  border-radius: 30px;
+  /* background: linear-gradient(135deg, #fea768 30%, #fcbb30 100%); */
+  /* background: #08582a; */
+  /* background: #fcce05; */
+  background: white;
+  border: #083651 solid;
+
+  text-decoration: none;
+  
+  font-size: 1.25rem;
+  width: 9rem;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  /* background: #2e8aad; */
+  color: rgba(250, 250, 250, 0.952);
+}
+
+.sub_btn {
+  border-radius: 30px;
+  /* background: linear-gradient(135deg, #fea768 30%, #fcbb30 100%); */
+  /* background: #08582a; */
+  /* background: #fcce05; */
+ 
+  border: white;
+  background-color: var(--secondary-color);
+  padding-left: 3rem;
+}
+
+.sub_btn:hover {
+  text-decoration: underline;
+}
+
+#create_btn {
+  color: var(--white-color);
+  background-color: var(--secondary-color);
+  border: none;
+}
+
+.delete-btn {
+  padding-left: 1rem;
+}
+
+/* Image button */
+.frogButton {
+  width: 4rem;
+  height: 4rem;
+  transition: transform 0.5s;
+}
+
+.frogButton:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.mediaButton {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.delete-btn > img {
+  transition: transform 0.5s;
+}
+.delete-btn > img:hover {
+  transform: scale(1.5, 1.5);
+}
+
+.edit-btn > img {
+  transition: transform 0.5s;
+}
+.edit-btn > img:hover {
+  transform: scale(1.5, 1.5);
+}
+
+/* Style Link tag */
+a {
+  color: inherit; /* take on the colour of its parent */
+  text-decoration: underline;
+}
+
+a:hover {
+  background-color: var(--secondary-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+.welcome_message {
+  text-align: center;
+  margin-top: 1rem;
+  width: 100%;
+  padding-top: 2rem;
+}
+
+.welcome_message > h1 {
+  font-size: 6rem;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.719);
+}
+
+.welcome_message > h3,
+h5 {
+  color: #e9ecef;
+  padding: 0;
+}
+
+.welcome_message > h5 {
+  /* color: #fcbb30; */
+  color: rgba(0, 0, 0, 0.719);
+}
+
+.welcome_summary_card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.summary_card_parent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.summary_card_parent > h6 {
+  color: #fcbb30;
+  font-weight: 700;
+  font-size: 5rem;
+  text-align: center;
+  position: relative;
+  top: 2rem;
+  /* z-index: 1; */
+  transition: transform 0.5s;
+}
+
+.summary_card_parent:hover {
+  cursor: pointer;
+}
+
+.summary_card_parent:hover > .summary_card_content {
+  transform: scale(1.25, 1.25);
+}
+
+.summary_card_content {
+  /* color: #b55525; */
+  color: white;
+  font-weight: bold;
+  font-size: 5rem;
+  text-align: center;
+  padding-top: 3rem;
+  /* style when using blurry card under */
+  /* position: relative;
+  top: 9rem;
+  z-index: 1; */
+  transition: transform 0.5s;
+}
+/* style when using blurry card under */
+/* .summary_card {
+  width: 8rem;
+  height: 8rem;
+  background-color: white;
+  opacity: 50%;
+  border-radius: 10px;
+} */
+
+.welcome_button_more {
+  padding-top: 2rem;
+}
+
+/* Hidden Banner Button */
+.hidden_banner_button {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+/* Task Container  */
+.task_container {
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  max-height: max-content;
+}
+/* Right SideBar */
+.rightSideBar {
+  width: 20%;
+  margin-right: 3rem;
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.sideBarElement {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0.2rem;
+  font-size: 1.2rem;
+}
+
+.sideBarBadge {
+  background-color: var(--secondary-color);
+}
+
+/* Task Card detail */
+.card {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  overflow: auto;
+  /* z-index: 1; */
+  height: 50vh;
+}
+
+#accordion {
+  width: 90%;
+  margin-right: 3rem;
+}
+
+.task-list:hover {
+  color: #f68121;
+}
+.task-header {
+  text-align: center;
+  color: aliceblue;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+/* #edit {
+  padding-right: 1rem;
+} */
+
+#taskName,
+#description,
+#assigned-to,
+#date,
+#assigned,
+#status {
+  background-color: var(--main-modal-color);
+}
+
+.card-header {
+  background-color: var(--secondary-color);
+  height: 4rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.card-header > h5 {
+  color: aliceblue;
+}
+
+.task-list {
+  margin-top: 1rem;
+}
+/* Delete Modal  */
+.modal-confirm {
+  color: #636363;
+  width: 400px;
+  margin: 30px auto;
+}
+.modal-confirm .modal-content {
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  background-color: var(--secondary-color);
+}
+.modal-header {
+  border-bottom: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: var(--white-color);
+  background-color: var(--secondary-color);
+}
+.modal-confirm h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 -10px;
+}
+.modal-confirm .close {
+ 
+  position: absolute;
+  top: -5px;
+  right: -2px;
+}
+.close{
+  color: #e9ecef;
+}
+.modal-confirm .modal-body {
+  color: #999;
+}
+.modal-confirm .modal-footer {
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 10px 15px 25px;
+  display: flex;
+  justify-content: center;
+}
+.modal-confirm .modal-footer a {
+  color: #999;
+}
+.modal-confirm .icon-box {
+  width: 80px;
+  height: 70px;
+  margin: 0 auto;
+  border-radius: 50%;
+  z-index: 9;
+  text-align: center;
+  /* border: 3px solid #f15e5e; */
+}
+.modal-confirm .icon-box i {
+  background-color: var(--secondary-color);
+  font-size: 46px;
+  display: inline-block;
+  margin-top: 13px;
+}
+.modal-confirm .btn {
+  color: #fff;
+  border-radius: 4px;
+  background-color: var(--light-shade-color);
+  text-decoration: none;
+  transition: all 0.4s;
+  line-height: normal;
+  min-width: 120px;
+  border: none;
+  min-height: 40px;
+  border-radius: 3px;
+  margin: 0 3px;
+  outline: none !important;
+}
+.modal-confirm .btn-info {
+  background: #c1c1c1;
+}
+.modal-confirm .btn-info:hover,
+.modal-confirm .btn-info:focus {
+  background: #a8a8a8;
+}
+.modal-confirm .btn-danger {
+  background-color: var(--light-shade-color);
+}
+.modal-confirm .btn-danger:hover,
+.modal-confirm .btn-danger:focus {
+  background-color: var(--secondary-color);
+}
+.trigger-btn {
+  display: inline-block;
+  margin: 100px auto;
+}
+
+
+/* NOTE:
+https://www.freecodecamp.org/news/how-to-center-anything-with-css-align-a-div-text-and-more/ */

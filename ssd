@@ -1,0 +1,30 @@
+[33mcommit 3475038ddb125a6027e2a86314ad47c5ae628920[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 2a1d178 ff1a993
+Author: Darispeg <darispegdennis@gmail.com>
+Date:   Thu Nov 5 13:41:31 2020 -0400
+
+    Merge branch 'Dennis'
+
+[33mcommit ff1a9933c63922ff63e5bd19198ff094ca6b1cc2[m
+Author: Darispeg <darispegdennis@gmail.com>
+Date:   Thu Nov 5 13:39:44 2020 -0400
+
+    Agrgando la estructura del proyecto
+
+[33mcommit 2a1d178a058e5056a3595eeeb135e1018dbe27fc[m
+Author: Darispeg <darispegdennis@gmail.com>
+Date:   Thu Nov 5 09:41:51 2020 -0400
+
+    comente las dependencias jbdc y mysql para hacer pruebas
+
+[33mcommit 879be6d20ecd5f82b15b6a9e567f2b6d4dcd70ca[m
+Author: Darispeg <darispegdennis@gmail.com>
+Date:   Thu Nov 5 09:39:25 2020 -0400
+
+    actualizando pom.xml
+
+[33mcommit 51ec508a8feb023056f10b18d412ba719a35069e[m[33m ([m[1;31morigin/Israel[m[33m, [m[1;31morigin/Gilmar[m[33m)[m
+Author: Darispeg <darispegdennis@gmail.com>
+Date:   Thu Nov 5 08:57:15 2020 -0400
+
+    Inicio del Proyecto
