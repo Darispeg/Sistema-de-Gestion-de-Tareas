@@ -78,9 +78,9 @@
                 </div>
             </div>
             <!-- Respuesta -->
-            <div class="col-6">
+            <div class="col-8">
                 <table th:each="tarearespuesta : ${respuesta}" class="table table-striped">
-                    <caption>Tarea Enviada</caption>
+                    <caption>Revisar Tarea</caption>
                     <tbody>
                         
                         <tr>
@@ -104,31 +104,28 @@
                         <tr>
                             <th scope="row"></th>
                             <td>Comentario:</td>
-                            <td th:text="*{tarearespuesta.comentario}"></td>
+                            <td th:text="*{tarearespuesta.comentario}">
+                                <textarea
+                                    class="form-control"
+                                    id="description"
+                                    rows="2"
+                                ></textarea>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row"></th>
                             <td>Calificación:</td>
-                            <td th:text="*{tarearespuesta.nota}"></td>
+                            <td th:text="*{tarearespuesta.nota}">
+                                <input type="number" name="" id="">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        <!-- Subir Archivo -->
-            <div th:if="${respuesta.isEmpty()}" class="form-container text-center">
-                <h2 class="form-tittle">Entregar tarea</h2>
-                <form method="post" th:action="@{/views/estudiantes/tareas/detalles/upload}" enctype="multipart/form-data" id="fileUploadForm" class="container">
-                    <div class="form-group">
-                        <label class="custom-file" id="customFile">
-                            <input type="file" class="custom-file-input" name="file" aria-describedby="fileHelp">
-                            <span class="custom-file-control form-control-file"></span>
-                        </label>
-                    </div>
-                    <div style="margin-bottom: 10px">
-                        <button type="submit" class="btn btn-success">Enviar</button>
-                    </div>
-                </form>
-            </div>
+                <p class="text-center">
+                    <button class="btn btn-primary col-5" type="submit">Enviar</button>
+                    <button class="btn btn-warning col-5" type="submit">Cancelar</button>                    
+                </p>
+                </div>
         </section>
     </main>
 
@@ -164,11 +161,6 @@
                 document.querySelector(".header-menu").classList.toggle("on-view");
             }
         });
-    </script>
-    <script>
-        $('.custom-file-input').on('change',function(){
-            $(this).next('.form-control-file').addClass("selected").html($(this).val());
-        })
     </script>
 </body>
 </html>

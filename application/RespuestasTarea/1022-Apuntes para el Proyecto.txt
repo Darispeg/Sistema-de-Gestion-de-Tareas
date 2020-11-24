@@ -1,0 +1,63 @@
+que es y como desarrollar el cache para una plataforma
+
+# spring.banner.image.location=banner.txt # Para Cambiar de banner en la consola
+
+
+#Para hacer una paginacion de los datos que te manda la BD
+
+import org.springframework.data.domain.Pageable;
+
+    public List<MNota> obtenerNotas(Pageable pageable){
+        return nService.obtenerPorPaginacion(pageable);
+    }
+
+
+
+
+# Seguridad autenticacion por tokens
+https://jwt.io/introduction/
+
+¿Qué es JSON Web Token?
+
+
+
+authentication token:
+eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTYW11cmFpIn0.fqoQ0mQBNt4FoUXFZMtpjR9c37tb5FfLJD4nDE_LXrQcJkXU18pQlP9q8aF_5aQg3ls6KRQYxIgEYCIMZ-N6bQ
+
+
+
+Para cambiar de banner en Spring
+
+https://devops.datenkollektiv.de/banner.txt/index.html
+	
+	sub-zero
+
+    ______     __    __     __       
+   /\  ___\   /\ "-./  \   /\ \      
+   \ \  __\   \ \ \-./\ \  \ \ \     
+    \ \_____\  \ \_\ \ \_\  \ \_\    
+     \/_____/   \/_/  \/_/   \/_/    
+
+
+	Starwars
+   ___   ___    _______ .___  ___.  __     ___   ___   
+  /  /  /  /   |   ____||   \/   | |  |    \  \  \  \  
+ /  /  /  /    |  |__   |  \  /  | |  |     \  \  \  \ 
+<  <  <  <     |   __|  |  |\/|  | |  |      >  >  >  >
+ \  \  \  \    |  |____ |  |  |  | |  |     /  /  /  / 
+  \__\  \__\   |_______||__|  |__| |__|    /__/  /__/  
+
+
+	standard
+
+   __   __    _____   __  __   ___    __   __  
+  / /  / /   | ____| |  \/  | |_ _|   \ \  \ \ 
+ / /  / /    |  _|   | |\/| |  | |     \ \  \ \
+ \ \  \ \    | |___  | |  | |  | |     / /  / /
+  \_\  \_\   |_____| |_|  |_| |___|   /_/  /_/ 
+                                               
+
+
+<div class="alert alert-success" role="alert">
+  A simple success alert—check it out!
+</div>

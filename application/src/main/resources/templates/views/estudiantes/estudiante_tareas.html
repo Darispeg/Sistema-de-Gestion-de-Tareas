@@ -6,6 +6,12 @@
     <title>Estudiante Tareas</title>
     <link rel="stylesheet" th:href="@{/css/document_format.css}" href="/application/src/main/resources/static/css/document_format.css" type="text/css">
     <link rel="stylesheet" th:href="@{/css/estudiante_tareas.css}" href="/application/src/main/resources/static/css/estudiante_tareas.css" type="text/css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <!-- header -->
@@ -13,7 +19,8 @@
         <div class="header-info">
             <div class="info-logo">
                 <div class="logo">
-                    <img src="/assets/brand/brand-logo.jpg" alt="">
+                    <img src="/assets/brand/ico-perfil.png" alt="">
+                    <button type="button" class="btn btn-outline-info">HOME</button>
                 </div>
             </div>
             <div class="info-social">
@@ -46,12 +53,14 @@
             <h2 class="tittle">Tareas</h2>
             <!-- Tarjeta de Tarea -->
             <div class="card-container">
-                <div class="card">
-                    <h2 class="card-tittle">card tittle</h2>
-                    <div th:each="tarea : ${tareas}" class="card-info">
-                        <p th:text="${tarea.titulo}"></p>
+                <div th:each="tarea : ${tareas}" class="card">
+                    <h2 class="card-tittle" th:text="${tarea.titulo}"></h2>
+                    <div class="card-info">
                         <p th:text="${tarea.descripcion}"></p>
                     </div>
+                    <a class="btn btn-primary" th:href="@{/views/estudiantes/materias/tareas/detalles/} + ${tarea.idTarea}"
+                        th:text="'Detalles'" title="Detalles Tarea">
+                    </a>
                 </div>
             </div>
         </section>
@@ -76,7 +85,7 @@
                 </ul>
             </div>
             <div class="logo">
-                <img src="/assets/brand/brand-logo.jpg" alt="">
+                <img src="/assets/brand/ico-perfil.png" alt="">
             </div>
         </section>
     </footer>
