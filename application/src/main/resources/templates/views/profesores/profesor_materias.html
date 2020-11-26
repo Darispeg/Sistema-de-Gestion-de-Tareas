@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="/views/profesores/template :: head">
+
+</head>
+<body>
+    <header th:replace="/views/profesores/template :: header"></header>
+    <div class="container">
+        <menu>
+            <main>
+                <section class="first-section">
+                    <h2 class="tittle">Materias</h2>
+                    <div th:each="materia : ${materias}" class="card-container target-materia">
+                        <div class="card bg-info">
+                            <h2 th:text="${materia.paralelo}" class="card-tittle text-center">Titulo</h2>
+                            <br>
+                            <div class="card-info">
+                                <h3 th:text="${materia.materia}" class="text-center"></h3>
+                            </div>
+                            <br>
+                            <!-- Para redireccionar a otro controlador -->
+                            <a class="btn btn-primary" th:href="@{/views/materia/tarea/} + ${materia.idMateria}"
+                                th:text="'mostrar'" th:if="@{materia.estado}" title="mostrar materia">
+                            </a>
+                            <!-- .............................................  -->
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </menu>
+    </div>
+    <footer th:replace="/views/profesores/template :: footer"></footer>
+</body>
+</html>

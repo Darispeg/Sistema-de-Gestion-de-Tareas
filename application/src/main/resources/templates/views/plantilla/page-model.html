@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page model</title>
-    <link rel="stylesheet" href="../css/document_format.css">
-    <link rel="stylesheet" href="../css/page-model.css">
+    <link rel="stylesheet" th:href="@{/css/document_format.css}" href="/application/src/main/resources/static/css/document_format.css" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/page-model.css}" href="/application/src/main/resources/static/css/page-model.css" type="text/css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <!-- header -->
@@ -13,24 +19,26 @@
         <div class="header-info">
             <div class="info-logo">
                 <div class="logo">
-                    <img src="../assets/brand/brand-logo.jpg" alt="">
+                    <a href="template.html" style="color: lightslategray;">
+                        <img src="/application/src/main/resources/static/assets/brand/ico-perfil.png" width="60" height="60" alt="Volver al Menu">
+                        </a>
                 </div>
             </div>
             <div class="info-social">
                 <div class="social-icon-container">
-                    <img src="../assets/icons/facebook.svg" alt="">
+                    <img src="/application/src/main/resources/static/assets/icons/facebook.svg" alt="">
                 </div>
                 <div class="social-icon-container">
-                    <img src="../assets/icons/twitter.svg" alt="">
+                    <img src="/application/src/main/resources/static/assets/icons/twitter.svg" alt="">
                 </div>
                 <div class="social-icon-container">
-                    <img src="../assets/icons/instagram.svg" alt="">
+                    <img src="/application/src/main/resources/static/assets/icons/instagram.svg" alt="">
                 </div>
             </div>
         </div>
         <div class="header-menu">
             <div class="collapse-icon-container">
-                <img src="../assets//icons/three-points-menu.svg" alt="">
+                <img src="/application/src/main/resources/static/assets//icons/three-points-menu.svg" alt="">
             </div>
             <ul>
                 <li>option 1</li>
@@ -55,14 +63,14 @@
                 </ul>
                 <h3>follow us</h3>
                 <ul class="social-icons">
-                    <li class="li-facebook"><a href="#"><img src="../assets/icons/facebook.svg" alt="facebook"></a></li>
-                    <li class="li-twitter"><a href="#"><img src="../assets/icons/twitter.svg" alt="twitter"></a></li>
-                    <li class="li-instagram"><a href="#"><img src="../assets/icons/instagram.svg" alt="instagram"></a></li>
-                    <li class="li-github"><a href="#"><img src="../assets/icons/github.svg" alt="github"></a></li>
+                    <li class="li-facebook"><a href="#"><img src="/application/src/main/resources/static/assets/icons/facebook.svg" alt="facebook"></a></li>
+                    <li class="li-twitter"><a href="#"><img src="/application/src/main/resources/static/assets/icons/twitter.svg" alt="twitter"></a></li>
+                    <li class="li-instagram"><a href="#"><img src="/application/src/main/resources/static/assets/icons/instagram.svg" alt="instagram"></a></li>
+                    <li class="li-github"><a href="#"><img src="/application/src/main/resources/static/assets/icons/github.svg" alt="github"></a></li>
                 </ul>
             </div>
             <div class="logo">
-                <img src="../assets/brand/brand-logo.jpg" alt="">
+                <img src="/application/src/main/resources/static/assets/brand/ico-perfil.png" alt="">
             </div>
         </section>
     </footer>

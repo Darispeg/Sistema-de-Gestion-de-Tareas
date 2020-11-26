@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="/views/profesores/template :: head">
+
+</head>
+<body>
+    <header th:replace="/views/profesores/template :: header"></header>
+    <div class="container">
+    <!-- main -->
+    <main>
+        <section class="first-section">
+            <h1 class="tittle">DETALLES TAREA</h1>
+            <br>
+            <div class="col-15">
+                <table th:each="detalle : ${tareaDetalle}" class="table table-hover">
+                    <caption>Tarea Enviada</caption>
+                    <tbody>
+                        <tr class="table-primary">
+                            <th scope="row"></th>
+                            <td>
+                                <h5>
+                                    Titulo de la Tarea:
+                                </h5>
+                            </td>
+                            <td th:text="*{detalle.titulo}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Descripcion:</td>
+                            <td th:text="*{detalle.descripcion}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Documento Adjunto:</td>
+                            <td>
+                                <img src="/assets/icons/ico_word.png" height="40" width="40">
+                                <a class="badge badge-secondary" th:text="${detalle.documento}" th:href="${detalle.url}"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Fecha de Inicio:</td>
+                            <td class="table-danger" th:text="*{detalle.fechaInicio}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Fecha de Final:</td>
+                            <td class="table-success" th:text="*{detalle.fechaFinal}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+<!-- Respuesta -->
+<br>
+<h2 class="col-15 table-primary text-center">RESPUESTAS</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido Paterno</th>
+                    <th scope="col">Apellido Materno</th>
+                    <th scope="col">Revisar</th>
+                </tr>
+                </thead>
+                <tbody th:each="respuesta : ${respuestas}">
+                <tr>
+                    <th scope="row" th:text="*{respuesta.idEstudiante}"></th>
+                    <td th:text="*{respuesta.nombre}"></td>
+                    <td th:text="*{respuesta.aPaterno}"></td>
+                    <td th:text="*{respuesta.aMaterno}"></td>
+                    <th>
+                        <a class="btn btn-warning btn-sm" th:href="@{/views/materias/tareas/respuesta/} + ${respuesta.idEstudiante}"
+                            th:text="'Revisar'" title="Revisar Tarea">
+                        </a>
+                    </th>
+                </tr>
+                </tbody>
+            </table>
+    </main>
+    </div>
+    <footer th:replace="/views/profesores/template :: footer"></footer>
+</body>
+</html>

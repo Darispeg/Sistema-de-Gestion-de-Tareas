@@ -66,4 +66,11 @@ public class EstudianteRepository implements EstudianteRep {
         Object[] param = new Object[] {id};
         return jdbcTemplate.queryForObject("SELECT * FROM estudiante WHERE ci = ?", param, new EstudianteMapper());
     }
+
+    /* Para el Login Estudiante */
+    @Override
+    public Estudiante login(String usuario, String contrasena) {
+        String sql = String.format("call loginEstudiante('%s', '%s')", usuario, contrasena);
+        return jdbcTemplate.queryForObject(sql, new EstudianteMapper());
+    }
 }

@@ -67,4 +67,10 @@ public class ProfesorRepository implements ProfesorRep {
         return jdbcTemplate.queryForObject("SELECT * FROM profesor WHERE idProfesor = ?", param, new ProfesorMapper());
     }
 
+    @Override
+    public Profesor loginProfesor(String user, String pass) {
+        String sql = String.format("call loginProfesor('%s', '%s')", user, pass);
+        return jdbcTemplate.queryForObject(sql, new ProfesorMapper());
+    }
+
 }

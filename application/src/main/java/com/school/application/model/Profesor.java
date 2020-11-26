@@ -17,8 +17,6 @@ public class Profesor {
     @Positive
     private long idEscuela;
 
-
-
     @NotBlank
     @Email    
     private String correo;

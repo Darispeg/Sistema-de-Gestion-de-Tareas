@@ -18,9 +18,10 @@
     <header>
         <div class="header-info">
             <div class="info-logo">
-                <div class="logo">
-                    <img src="/assets/brand/ico-perfil.png" alt="">
-                    <button type="button" class="btn btn-outline-info">HOME</button>
+                <div class="logo row">
+                    <a th:href="@{/views/estudiantes/home}">
+                        <img src="/assets/brand/ico-perfil.png" width="60" height="60" alt="Volver al Menu">
+                    </a>
                 </div>
             </div>
             <div class="info-social">
@@ -39,10 +40,14 @@
             <div class="collapse-icon-container">
                 <img src="/assets//icons/three-points-menu.svg" alt="">
             </div>
-            <ul>
-                <li>Materia</li>
-                <li>Tarea</li>
-                <li>Area Personal</li>
+            <ul th:each="usuario : ${estudiante}">
+                <li id="menu-materia">
+                    <a th:href="@{/views/estudiantes/materias/} + ${usuario.ci}">
+                        Materia
+                    </a>
+                </li>
+                <li id="menu-tarea">Tarea</li>
+                <li id="menu-area-personal">Area Personal</li>
             </ul>
         </div>
     </header>
@@ -96,7 +101,7 @@
                         <tr>
                             <th scope="row"></th>
                             <td>Archivos Enviados:</td>
-                            <td>
+                            <td th:if="@{tarearespuesta.url!=null}">
                                 <img src="/assets/icons/ico_word.png" height="30" width="30">
                                 <a th:text="${tarearespuesta.documento}" th:href="${tarearespuesta.url}"></a>
                             </td>
@@ -138,9 +143,9 @@
             <div class="social">
                 <h3>information</h3>
                 <ul class="social-info">
-                    <li><a href="#">no se que poner aca</a></li>
-                    <li><a href="#">no se que poner aca</a></li>
-                    <li><a href="#">no se que poner aca</a></li>
+                    <li><a href="#">Contacto: </a></li>
+                    <br>
+                    <li><a href="#">Correo: </a></li>
                 </ul>
                 <h3>follow us</h3>
                 <ul class="social-icons">

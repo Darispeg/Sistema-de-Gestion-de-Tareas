@@ -18,9 +18,10 @@
     <header>
         <div class="header-info">
             <div class="info-logo">
-                <div class="logo">
-                    <img src="/assets/brand/ico-perfil.png" alt="">
-                    <button type="button" class="btn btn-outline-info">HOME</button>
+                <div class="logo row">
+                    <a th:href="@{/views/estudiantes/home}">
+                        <img src="/assets/brand/ico-perfil.png" width="60" height="60" alt="Volver al Menu">
+                    </a>
                 </div>
             </div>
             <div class="info-social">
@@ -39,8 +40,12 @@
             <div class="collapse-icon-container">
                 <img src="/assets/icons/three-points-menu.svg" alt="">
             </div>
-            <ul>
-                <li id="menu-materia">Materia</li>
+            <ul th:each="usuario : ${estudiante}">
+                <li id="menu-materia">
+                    <a th:href="@{/views/estudiantes/materias/} + ${usuario.ci}">
+                        Materia
+                    </a>
+                </li>
                 <li id="menu-tarea">Tarea</li>
                 <li id="menu-area-personal">Area Personal</li>
             </ul>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+
+    <link rel="stylesheet" th:href="@{/css/document_format.css}" href="/application/src/main/resources/static/css/document_format.css" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/login.css}" href="/application/src/main/resources/static/css/login.css" type="text/css">
+</head>
+<body>
+    <div class="form-container" data-role="ESTUDIANTE">
+        <div class="form-info">
+            <div class="logo-container">
+                <img src="/assets/brand/ico-perfil.png" alt="">
+            </div>
+            <h2>Estudiante</h2>
+        </div>
+        <!--     Form   "      -->
+        <form class="form-login" th:action="@{/views/estudiantes/login/acess}" th:object="${usuario}" method="POST">
+            <!-- Usuario -->
+            <input class="input-field" type="text" 
+                    th:field="*{correo}" name="uName_" id="correo" 
+                placeholder="Usuario" required autocomplete="off">
+            
+            <!-- Contraseña -->
+            <input class="input-field" type="password" 
+                th:field="*{contrasena}" name="uPassword_" id="contrasena" 
+            placeholder="Contraseña" required autocomplete="off">
+            <!-- Enviar -->
+            <input type="submit" value="Iniciar Sesion">
+        </form>
+        <!-- ---------------- -->
+        <div class="form-links">
+            <a href="#">¿olvidó su contraseña?</a>
+        </div>
+        <div class="toggle-role">
+            <button id="toggle-role-btn">Profesor</button>
+        </div>
+    </div>
+    
+    <script>
+        const $toggleRoleBtn = document.getElementById("toggle-role-btn");
+
+        function changeToEstudiante($formContainer, $toggleRoleBtn) {
+            $formContainer.querySelector("h2").textContent = "Estudiante";
+            $toggleRoleBtn.textContent = "Profesor";
+        }
+        function changeToProfesor($formContainer, $toggleRoleBtn) {
+            $formContainer.querySelector("h2").textContent = "Profesor";
+            $toggleRoleBtn.textContent = "Estudiante";
+        }
+        $toggleRoleBtn.addEventListener("click", () => {
+            const $formContainer = document.querySelector(".form-container");
+            
+            if ($formContainer.dataset.role === "ESTUDIANTE") {
+                $formContainer.dataset.role = "PROFESOR";
+                changeToProfesor($formContainer, $toggleRoleBtn);
+            }
+            else {
+                $formContainer.dataset.role = "ESTUDIANTE";
+                changeToEstudiante($formContainer, $toggleRoleBtn);
+            }
+        });
+    </script>
+</body>
+</html>

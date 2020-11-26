@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="/views/profesores/template :: head">
+    <link rel="stylesheet" th:href="@{/css/login.css}" href="/application/src/main/resources/static/css/login.css" type="text/css">
+</head>
+<body>
+    <header class="header">
+        <div class="menu margen-interno">
+            <!-- Cuerpo del header -->
+            <div class="logo">
+                <a href="#" style="color: lightslategray;">
+                <img src="/assets/brand/ico-perfil.png" width="50" height="50" alt="Volver al Menu">
+                <p>Principal</p>
+                </a>
+            </div>
+            <div class="social">
+                <div>
+                    <a href="https://www.facebook.com/dennisrodrigo.arispegarcia.3">
+                    <img src="/assets/icons/ico-facebook.png" height="30" width="30" alt="">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.instagram.com/dennis.rodrigo/?hl=es-la">
+                        <img src="/assets/icons/icon-instagram.png" height="30" width="30" alt="">
+                    </a>
+                </div>
+            </div>
+            <!-- ---------------- -->
+        </div>
+        <div class="texto-principal margen-interno">
+            <!-- Cuerpo de la Imagen -->
+            <div class="container text-center menu-login">
+                <menu>
+                <div class="text-center" data-role="ESTUDIANTE">
+                    <br>
+                        <img src="/assets/icons/ico-teacher.png" width="60" height="50" alt="">
+                        <h3 class="text-primary">PROFESOR</h3>
+                        <br>
+                    <form class="col-16 form-login" th:action="@{/views/login/acess}" th:object="${usuario}" method="POST">
+                        <!-- Usuario -->
+                        <div class="text-center">
+                            <input class="input-field" type="text" 
+                                    th:field="*{correo}" name="uName_" id="correo" 
+                                placeholder="Usuario" required autocomplete="off">
+                        </div>
+                        <br>
+                        <!-- Contraseña -->
+                        <div class="text-center">
+                            <input class="input-field" type="password" 
+                                th:field="*{contrasena}" name="uPassword_" id="contrasena" 
+                            placeholder="Contraseña" required autocomplete="off">
+                            <!-- Enviar -->
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-info">Iniciar Seccion</button>
+                        <br><br>
+                    </form>
+                    <div class="text-muted">
+                        <a href="#">¿olvidó su contraseña?</a>
+                    </div>
+                </div> 
+                </menu>
+            </div>
+        </div>
+    </header>
+    <script>
+        const $toggleRoleBtn = document.getElementById("toggle-role-btn");
+
+        function changeToEstudiante($formContainer, $toggleRoleBtn) {
+            $formContainer.querySelector("h2").textContent = "Estudiante";
+            $toggleRoleBtn.textContent = "Profesor";
+        }
+        function changeToProfesor($formContainer, $toggleRoleBtn) {
+            $formContainer.querySelector("h2").textContent = "Profesor";
+            $toggleRoleBtn.textContent = "Estudiante";
+        }
+        $toggleRoleBtn.addEventListener("click", () => {
+            const $formContainer = document.querySelector(".form-container");
+            
+            if ($formContainer.dataset.role === "ESTUDIANTE") {
+                $formContainer.dataset.role = "PROFESOR";
+                changeToProfesor($formContainer, $toggleRoleBtn);
+            }
+            else {
+                $formContainer.dataset.role = "ESTUDIANTE";
+                changeToEstudiante($formContainer, $toggleRoleBtn);
+            }
+        });
+    </script>
+</body>
+</html>

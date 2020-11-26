@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="/views/profesores/template :: head">
+
+</head>
+<body>
+    <header th:replace="/views/profesores/template :: header"></header>
+    <div class="container">
+        <h1 class="tittle">RESPUESTA TAREA</h1>
+        <br>
+        <form th:action="@{/views/respuesta/calificar}" th:object="${respuesta}" action="" method="POST">
+            <div class="col-15">
+                <table  class="table table-hover">
+                    <tbody>
+                        <tr class="table-primary">
+                            <th scope="row"></th>
+                            <td>
+                                <h5>
+                                    Titulo de la Tarea:
+                                </h5>
+                            </td>
+                            <td th:text="${respuesta.titulo}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Fecha de Respuesta:</td>
+                            <td class="table-success" th:text="${respuesta.fechaRespuesta}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Archivos Enviados:</td>
+                            <td>
+                                <img src="/assets/icons/ico_word.png" height="30" width="30">
+                                <a class="btn btn-info btn-sm" style="color: black;"  th:text="${respuesta.documento}" th:href="${respuesta.url}"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="form-group row">
+                    <input type="hidden" th:field="*{idTarea}" id="idTarea">
+                    <input type="hidden" th:field="*{idEstudiante}" id="idTarea">
+                    <label class="col-md-2" for="nota">Nota:</label>
+                    <input type="number" th:field="*{nota}" class="form-control form-control-sm col-md-6" id="nota" placeholder="Nota del Estudiante">
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2" for="comentario">Comentario</label>
+                    <input type="text" th:field="*{comentario}" class="form-control form-control-sm col-md-6" id="comentario" placeholder="Escriba su comentario">
+                </div>
+                <div class="card-footer">
+                    <input type="submit" class="btn btn-success btn-sm" value="Guardar"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <footer th:replace="/views/profesores/template :: footer"></footer>
+</body>
+</html>
