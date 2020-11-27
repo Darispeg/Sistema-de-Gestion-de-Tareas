@@ -105,14 +105,14 @@
     
                         <div class="form-group">
                             <label for="taskName">Titulo de la tarea</label>
-                            <input th:field="*{titulo}" type="text" class="form-control" id="titulo" placeholder="Titulo de la Tarea"/>
+                            <input required th:field="*{titulo}" type="text" class="form-control" id="titulo" placeholder="Titulo de la Tarea"/>
                         </div>
     
     <!------------ Description de la Tarea -------->
     
                         <div class="form-group">
                         <label for="description">Descripcion</label>
-                        <textarea th:field="*{descripcion}" class="form-control" id="descripcion" rows="2"> </textarea>
+                        <textarea required th:field="*{descripcion}" class="form-control" id="descripcion" rows="2"> </textarea>
     
     <!--------------- fecha ----------------------->
     
@@ -120,7 +120,7 @@
                         <div class="col-8">
                             <label for="date" class="col-4 col-form-label">Fecha</label>
                             <div>
-                                <input th:field="*{fechaFinal}" class="form-control form-group" type="date" id="fechaFinal"/>
+                                <input required th:field="*{fechaFinal}" class="form-control form-group" type="date" id="fechaFinal"/>
                             </div>
                         </div>
                     </form>

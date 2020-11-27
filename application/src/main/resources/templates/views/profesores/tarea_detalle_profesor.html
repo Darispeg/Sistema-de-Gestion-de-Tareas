@@ -31,10 +31,10 @@
                         </tr>
                         <tr>
                             <th scope="row"></th>
-                            <td>Documento Adjunto:</td>
+                            <td>Documentos Adjunto:</td>
                             <td>
-                                <img src="/assets/icons/ico_word.png" height="40" width="40">
-                                <a class="badge badge-secondary" th:text="${detalle.documento}" th:href="${detalle.url}"></a>
+                                <img src="/assets/icons/icon-folder-tree.png" height="40" width="40">
+                                <a th:href="@{/tareas/archivos/} + ${detalle.idTarea}" class="badge badge-secondary" style="color: white;">documentos adjunto</a>
                             </td>
                         </tr>
                         <tr>
@@ -50,9 +50,29 @@
                     </tbody>
                 </table>
             </div>
+
+        <!-- Subir Archivo -->
+        <div class="container text-center table-primary">
+            <br>
+            <h2 class="form-tittle">Subir Archivo</h2>
+            <form method="post" th:action="@{/views/tareas/detalles/upload}" enctype="multipart/form-data" id="fileUploadForm" class="container">
+                <div class="form-group">
+                    <img src="/assets/icons/ico-browse-folder.png" height="40" width="40">
+                    <label class="custom-file" id="customFile">
+                        <input required type="file" class="custom-file-input" name="file" aria-describedby="fileHelp">
+                        <span class="custom-file-control form-control-file">Selecione un Archivo</span>
+                    </label>
+                </div>
+                <div style="margin-bottom: 15px">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                </div>
+            </form>
+            <br>
+        </div>
 <!-- Respuesta -->
-<br>
-<h2 class="col-15 table-primary text-center">RESPUESTAS</h2>
+        <br>
+        <div th:if="${!respuestas.isEmpty()}">
+            <h2 class="col-15 table-primary text-center">RESPUESTAS</h2>
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -77,6 +97,7 @@
                 </tr>
                 </tbody>
             </table>
+        </div>
     </main>
     </div>
     <footer th:replace="/views/profesores/template :: footer"></footer>

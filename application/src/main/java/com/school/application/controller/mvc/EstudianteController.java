@@ -4,13 +4,13 @@ import java.util.List;
 
 import com.school.application.model.Estudiante;
 import com.school.application.model.RespuestaTarea;
-import com.school.application.model.vistaModel.DetalleTarea;
+import com.school.application.model.Tarea;
 import com.school.application.model.vistaModel.EstMateria;
 import com.school.application.model.vistaModel.TareaMateria;
 import com.school.application.repository.Estudiante.EstudianteRepository;
 import com.school.application.repository.Materia.EstMateriaRepository;
 import com.school.application.repository.Materia.TareaMateriaRepository;
-import com.school.application.repository.Tarea.DetalleTareaRepository;
+import com.school.application.repository.Tarea.TareaRepository;
 import com.school.application.repository.Tarea.respuestas.RespuestaRepository;
 import com.school.application.repository.Tarea.service.FileRespuestaRepository;
 
@@ -33,7 +33,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class EstudianteController {
 
     private Estudiante usuario = null;
-    private DetalleTarea tDetalle = null;
+    private Tarea tDetalle = null;
     Log log = LogFactory.getLog(getClass());
     
     @Autowired
@@ -46,13 +46,14 @@ public class EstudianteController {
     private TareaMateriaRepository tMateriaRepository;
 
     @Autowired
-    private DetalleTareaRepository dTareaRepository;
+    private TareaRepository tareaRepository;
 
     @Autowired
     private FileRespuestaRepository fileRepository;
 
     @Autowired
     private RespuestaRepository respuestaRepository;
+
 
 /* ------------------ LOGIN --------------------------------------------- */
     public void loginUsuario(String user, String pass){
@@ -108,14 +109,18 @@ public class EstudianteController {
 
 /* ----------------------------------------------------------------------------- */
 
+
 /* -------------------------------  TAREAS ---------------------------------------*/
     @GetMapping(value = "/materias/tareas/detalles/{tarea}")
     public String verDetalles(@PathVariable("tarea") int tarea, Model model) {
-        tDetalle = dTareaRepository.findTarea(tarea);
+        tDetalle = tareaRepository.findId(tarea);
         List<RespuestaTarea> rTarea = respuestaRepository.findRespuestaEstudiante((int)tDetalle.getIdTarea(), (int)usuario.getIdEstudiante());
+
         model.addAttribute("tareaDetalle", tDetalle);
+
         model.addAttribute("respuesta", rTarea);
         model.addAttribute("estudiante", usuario);
+
         return "/views/estudiantes/estudiante_detalle_tarea";
     }
 

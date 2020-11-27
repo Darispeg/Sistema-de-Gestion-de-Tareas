@@ -59,31 +59,39 @@
             <div class="card-container">
                 <div th:each="detalle : ${tareaDetalle}" class="card">
                     <h2 th:text="*{detalle.titulo}" class="card-tittle">card tittle</h2>
-                    <div class="card-info">
-                        <p th:text="*{detalle.descripcion}"></p>
-                        <br>
-                        <!-- Icono de Word con la url de descarga del documento -->
-                        <div>
-                            <img src="/assets/icons/ico_word.png" height="30" width="30">
-                            <a th:text="${detalle.documento}" th:href="${detalle.url}" style='color: black'></a>
-                        </div>
-                        <br>
-                        <!-- Hacer una Tabla para mejorar la presentacion -->
-                        <div>
-                            <p>Fecha de Inicio: </p>
-                            <p th:text="*{detalle.fechaInicio}"></p>
-                        </div>
-                        <br>  
-                        <div>
-                            <p>Fecha de Entrega: </p>
-                            <p th:text="*{detalle.fechaFinal}"></p>
-                        </div>                         
-                        <!-- -------------------------------------------  -->
                     </div>
+                    <table th:each="detalle : ${tareaDetalle}" class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Descripcion: </th>
+                            <th scope="col" th:text="*{detalle.descripcion}"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Archivo adjunto: </th>
+                            <td>                        
+                                <div>
+                                    <img src="/assets/icons/icon-folder-tree.png" height="30" width="30">
+                                    <a th:href="@{/tareas/archivos/} + ${detalle.idTarea}" class="badge badge-warning" style="color: white;">documentos adjunto</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Fecha Inicio: </th>
+                            <td class="table-success" th:text="*{detalle.fechaInicio}"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Fecha Entrega: </th>
+                            <td class="table-info" th:text="*{detalle.fechaFinal}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <!-- Respuesta -->
-            <div class="col-6">
+            <h4>Respuesta</h4>
+            <div>
                 <table th:each="tarearespuesta : ${respuesta}" class="table table-striped">
                     <caption>Tarea Enviada</caption>
                     <tbody>
@@ -96,7 +104,7 @@
                         <tr>
                             <th scope="row"></th>
                             <td>Fecha de Respuesta:</td>
-                            <td class="table-success" th:text="*{tarearespuesta.fechaRespuesta}"></td>
+                            <td th:text="*{tarearespuesta.fechaRespuesta}"></td>
                         </tr>
                         <tr>
                             <th scope="row"></th>

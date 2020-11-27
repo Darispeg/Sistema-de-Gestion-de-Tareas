@@ -2,6 +2,13 @@ package com.school.application.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Range;
+
 public class RespuestaTarea {
 
     private long idRespuesta;
@@ -24,8 +31,13 @@ public class RespuestaTarea {
     
     private String url;
     
+    @NotNull
+    @Positive
+    @Range(min = 1, max = 10)
     private double nota; // valor por defecto null, lo modifica un profesor
     
+    @NotBlank
+    @Size(min = 5, max = 300)
     private String comentario; // valor por defecto null, lo modifica un profesor
 
     public long getIdTarea() {

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="/views/profesores/template :: head">
+
+</head>
+<body>
+    <header th:replace="/views/profesores/template :: header"></header>
+    <div class="container" th:if="${!detalles.isEmpty()}">
+        <menu>
+            <br>
+            <h1>Archivos Subidos</h1>
+            <br>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">IdTarea</th>
+                    <th scope="col">Documento</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Descargar</th>
+                </tr>
+                </thead>
+                <tbody th:each="detalle : ${detalles}">
+                <tr>
+                    <th scope="row" th:text="${detalle.idTarea}"></th>
+                    <td th:text="${detalle.documento}"></td>
+                    <td th:text="${detalle.url}"></td>
+                    <th>
+                        <a class="btn btn-warning btn-sm"
+                            th:href="${detalle.url}"
+                            th:text="'Descargar'" title="descargar">
+                        </a>
+                    </th>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
+        </menu>
+    </div>
+    <div class="container text-center" th:if="${detalles.isEmpty()}">
+        <h1>Todavia no se ha subido ningun Archivo</h1>
+        <img src="/assets/icons/icon-folder-empty.png" alt="">
+    </div>
+    <footer th:replace="/views/profesores/template :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" href="/application/src/main/resources/static/css/estilo.css">
+    <link rel="stylesheet" th:href="@{/css/document_format.css}" href="/application/src/main/resources/static/css/document_format.css" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/page-model.css}" href="/application/src/main/resources/static/css/page-model.css" type="text/css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="padre">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="menu margen-interno">
+                <!-- Cuerpo del header -->
+                <div class="logo">
+                    <a href="#" style="color: lightslategray;">
+                    <img src="/assets/brand/ico-perfil.png" width="50" height="50" alt="Volver al Menu">
+                    <p>Principal</p>
+                    </a>
+                </div>
+                <nav class="nav" th:each=" usuario : ${profesor}">
+                    <a th:href="@{/views/materias/} + ${usuario.ci}">
+                        <img src="/assets/icons/ico-school.png" height="30" width="30" alt="">
+                        <span class="off">Materias</span>
+                    </a>
+                    <a href="#">
+                        <img src="/assets/icons/ico-work-book.png" height="30" width="30" alt="">
+                        <span class="off">Tareas</span> </a>
+                    <a href="#">
+                        <img src="/assets/icons/ico-user.png" height="30" width="30" alt="">
+                        <span class="off">Datos Personales</span> 
+                    </a>
+                </nav>
+                <div class="social">
+                    <div>
+                        <a href="https://www.facebook.com/dennisrodrigo.arispegarcia.3">
+                        <img src="/assets/icons/ico-facebook.png" height="30" width="30" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://www.instagram.com/dennis.rodrigo/?hl=es-la">
+                            <img src="/assets/icons/icon-instagram.png" height="30" width="30" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- ---------------- -->
+            </div>
+            <div class="texto-principal margen-interno">
+                <h1>Bienvenido a la Plataforma estudiantil desarrollada por los estudiantes de la Escuela Militar de Ingenieria</h1>
+            </div>
+        </header>
+        <!-- -------------------------------------------------  -->
+    <!-- BODY -->
+    <br><br>
+    <section class="section margen-interno">
+        <div class="row row-cols-1 row-cols-md-3">
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <img src="/assets/icons/ciencia-banner.jpg" width="300" height="300" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Semana de la Ciencia</h5>
+                    <p class="card-text">
+                        La Semana Internacional de la Ciencia y la Paz se celebró por primera vez en 1986
+                        como parte del Año Internacional de la Paz. 
+                        La organización de las celebraciones y actividades para la Semana..........
+                    </p>
+                    </div>
+                    <button type="button" class="btn btn-outline-info">Ver mas...</button>
+                </div>
+                </div>
+                <div class="col mb-4">
+                <div class="card h-100">
+                    <img src="/assets/icons/cuidar-medio.png" width="300" height="300" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Cuida el Medio Ambiente</h5>
+                        <p class="card-text">
+                            Cuidar el medioambiente no requiere grandes acciones, 
+                            sino que desde tu propia casa puedes hacer muchos pequeños gestos para contribuir 
+                            a su protección. Además, si tienes hijos, serás su referente........... 
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-outline-info">Ver mas...</button>
+                </div>
+                </div>
+                <div class="col mb-4">
+                <div class="card h-100">
+                    <img src="/assets/icons/navidad.jpg" width="300" height="300" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Felices Fiestas</h5>
+                    <p class="card-text">La Unidad Educativa Marcelo Quiraga Santa Cruz les desea 
+                        Para Navidad: felicidad. Para Año Nuevo: prosperidad. Y para siempre: nuestra amistad.......</p>
+                    </div>
+                    <button type="button" class="btn btn-outline-info">Ver mas...</button>
+                </div>
+                </div>
+                <div class="col mb-4">
+                <div class="card h-100">
+                    <img src="/assets/icons/covid.jpg" width="300" height="300" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Coronavirus</h5>
+                        <p class="card-text">
+                            Bolivia es uno de los 11 países de América Latina en los que trabajamos frente a la crisis del coronavirus.
+                            Si quieres conocer las claves de la alerta sanitaria en Bolivia y nuestra respuesta a la crisis en este país........
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-outline-info">Ver mas...</button>
+                </div>
+                </div>
+                <div class="col mb-4">
+                <div class="card h-100">
+                    <img src="/assets/icons/ico-add.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title text-center">Nueva Publicacion</h5>
+                    </div>
+                    <button type="button" class="btn btn-outline-success">Agregar</button>
+                </div>
+                </div>
+        </div>
+    </section>
+    <!--  -->
+    <!-- footer -->
+    <footer>
+        <section class="brand-info">
+            <div class="social">
+                <h3>information</h3>
+                <ul class="social-info">
+                    <li><a href="#">Contacto: </a></li>
+                    <br>
+                    <li><a href="#">Correo: </a></li>
+                </ul>
+                <h3>follow us</h3>
+                <ul class="social-icons">
+                    <li class="li-facebook"><a href="#"><img src="/assets/icons/facebook.svg" alt="facebook"></a></li>
+                    <li class="li-twitter"><a href="#"><img src="/assets/icons/twitter.svg" alt="twitter"></a></li>
+                    <li class="li-instagram"><a href="#"><img src="/assets/icons/instagram.svg" alt="instagram"></a></li>
+                    <li class="li-github"><a href="#"><img src="/assets/icons/github.svg" alt="github"></a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="/assets/brand/ico-perfil.png" alt="">
+            </div>
+        </section>
+    </footer>
+
+    </div>
+</body>
+</html>

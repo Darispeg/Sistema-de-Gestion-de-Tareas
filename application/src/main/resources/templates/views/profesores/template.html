@@ -19,6 +19,8 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
     <!-- header -->
@@ -26,14 +28,14 @@
         <div class="header-info">
             <div class="info-logo">
                 <div class="logo">
-                    <a href="template.html" style="color: lightslategray;">
+                    <a th:href="@{/views/home}" style="color: lightslategray;">
                         <img src="/assets/brand/ico-perfil.png" width="60" height="60" alt="Volver al Menu">
                         </a>
                 </div>
             </div>
             <div class="info-social">
                 <div class="social-icon-container">
-                    <img src="/assets/icons/facebook.svg" alt="">
+                    <a href="https://www.facebook.com/dennisrodrigo.arispegarcia.3"><img src="/assets/icons/facebook.svg" alt=""></a>
                 </div>
                 <div class="social-icon-container">
                     <img src="/assets/icons/twitter.svg" alt="">
@@ -84,22 +86,23 @@
     <footer th:fragment="footer">
         <section class="brand-info">
             <div class="social">
-                <h3>information</h3>
+                <h3>Desarrolladores:</h3>
                 <ul class="social-info">
-                    <li><a href="#">no se que poner aca</a></li>
-                    <li><a href="#">no se que poner aca</a></li>
-                    <li><a href="#">no se que poner aca</a></li>
+                    <li><a href="#">Dennis Rodrigo Arispe Garcia</a></li>
+                    <li><a href="#">Juan Carlos Canedo Herboso</a></li>
+                    <li><a href="#">Israel Gonzales Rojas</a></li>
+                    <li><a href="#">Gilmar Mamani Hinojos</a></li>
                 </ul>
                 <h3>follow us</h3>
                 <ul class="social-icons">
-                    <li class="li-facebook"><a href="#"><img src="/assets/icons/facebook.svg" alt="facebook"></a></li>
+                    <li class="li-facebook"><a href="https://www.facebook.com/dennisrodrigo.arispegarcia.3"><img src="/assets/icons/facebook.svg" alt="facebook"></a></li>
                     <li class="li-twitter"><a href="#"><img src="/assets/icons/twitter.svg" alt="twitter"></a></li>
                     <li class="li-instagram"><a href="#"><img src="/assets/icons/instagram.svg" alt="instagram"></a></li>
                     <li class="li-github"><a href="#"><img src="/assets/icons/github.svg" alt="github"></a></li>
                 </ul>
             </div>
             <div class="logo">
-                <img src="/assets/brand/ico-perfil.png" alt="">
+                <a th:href="@{/views/home}"><img src="/assets/brand/ico-perfil.png" alt=""></a>
             </div>
         </section>
     </footer>

@@ -59,13 +59,18 @@
             <!-- Tarjeta de Tarea -->
             <div class="card-container">
                 <div th:each="tarea : ${tareas}" class="card">
-                    <h2 class="card-tittle" th:text="${tarea.titulo}"></h2>
-                    <div class="card-info">
+                    <h2 class="card-tittle text-center" th:text="${tarea.titulo}"></h2>
+                    <br><br>
+                    <div class="text-center">
                         <p th:text="${tarea.descripcion}"></p>
                     </div>
-                    <a class="btn btn-primary" th:href="@{/views/estudiantes/materias/tareas/detalles/} + ${tarea.idTarea}"
-                        th:text="'Detalles'" title="Detalles Tarea">
-                    </a>
+                    <br><br>
+                    <div class="text-center">
+                        <a class="btn btn-outline-primary col-3" th:href="@{/views/estudiantes/materias/tareas/detalles/} + ${tarea.idTarea}"
+                            th:text="'Detalles'" title="Detalles Tarea">
+                        </a>                        
+                    </div>
+                    <br>
                 </div>
             </div>
         </section>

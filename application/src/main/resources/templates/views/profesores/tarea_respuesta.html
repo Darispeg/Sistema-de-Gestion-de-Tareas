@@ -6,8 +6,9 @@
 <body>
     <header th:replace="/views/profesores/template :: header"></header>
     <div class="container">
-        <h1 class="tittle">RESPUESTA TAREA</h1>
+        <h1 class="card-header bg-dark text-white">RESPUESTA TAREA</h1>
         <br>
+        <div class="card-body">
         <form th:action="@{/views/respuesta/calificar}" th:object="${respuesta}" action="" method="POST">
             <div class="col-15">
                 <table  class="table table-hover">
@@ -40,17 +41,18 @@
                     <input type="hidden" th:field="*{idTarea}" id="idTarea">
                     <input type="hidden" th:field="*{idEstudiante}" id="idTarea">
                     <label class="col-md-2" for="nota">Nota:</label>
-                    <input type="number" th:field="*{nota}" class="form-control form-control-sm col-md-6" id="nota" placeholder="Nota del Estudiante">
+                    <input type="number" min="1" max="10" step=".5" th:field="*{nota}" class="form-control form-control-sm col-md-6" id="nota" placeholder="Nota del Estudiante">
                 </div>
                 <div class="form-group row">
                     <label class="col-md-2" for="comentario">Comentario</label>
-                    <input type="text" th:field="*{comentario}" class="form-control form-control-sm col-md-6" id="comentario" placeholder="Escriba su comentario">
+                    <input type="text" th:field="*{comentario}" required class="form-control form-control-sm col-md-6" id="comentario" placeholder="Escriba su comentario">
                 </div>
                 <div class="card-footer">
                     <input type="submit" class="btn btn-success btn-sm" value="Guardar"/>
                 </div>
             </div>
         </form>
+        </div>
     </div>
     <footer th:replace="/views/profesores/template :: footer"></footer>
 </body>

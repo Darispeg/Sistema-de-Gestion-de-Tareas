@@ -2,12 +2,13 @@ package com.school.application.controller.mvc;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.school.application.model.Curso;
 import com.school.application.model.Materia;
 import com.school.application.model.Profesor;
 import com.school.application.model.RespuestaTarea;
 import com.school.application.model.Tarea;
-import com.school.application.model.vistaModel.DetalleTarea;
 import com.school.application.model.vistaModel.ProfesorMateria;
 import com.school.application.model.vistaModel.TareaMateria;
 import com.school.application.repository.Curso.CursoRepository;
@@ -15,20 +16,23 @@ import com.school.application.repository.Materia.MateriaRepository;
 import com.school.application.repository.Materia.ProfMateriaRepository;
 import com.school.application.repository.Materia.TareaMateriaRepository;
 import com.school.application.repository.Profesor.ProfesorRepository;
-import com.school.application.repository.Tarea.DetalleTareaRepository;
 import com.school.application.repository.Tarea.TareaRepository;
 import com.school.application.repository.Tarea.respuestas.RespuestaRepository;
+import com.school.application.repository.Tarea.service.FileServiceRepository;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -36,7 +40,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class ProfesorController {
 
     private Profesor usuario;
-    private DetalleTarea tDetalle = null;
+    private Tarea tDetalle = null;
+    private int idTarea = 0;
 
     @Autowired
     private ProfMateriaRepository pMateriaRepository;
@@ -44,8 +49,6 @@ public class ProfesorController {
     @Autowired
     private ProfesorRepository profesorRepository;
 
-    @Autowired
-    private DetalleTareaRepository dTareaRepository;
 
     @Autowired
     private TareaMateriaRepository tMateriaRepository;
@@ -61,6 +64,9 @@ public class ProfesorController {
 
     @Autowired
     private RespuestaRepository respuestaRepository;
+
+    @Autowired
+    private FileServiceRepository fileServiceRepository;
 
     Log log = LogFactory.getLog(getClass());
 
@@ -81,6 +87,16 @@ public class ProfesorController {
     }
 
 /* ------------------------------------------------------------------------------------------------ */
+
+/* -----------------       MENU      ----------------------------------- */
+
+    @GetMapping(value = "/home")
+    public String home(Model model){
+        model.addAttribute("profesor", usuario);
+        return "/views/profesores/home";
+    }
+
+/* ---------------------------------------------------------------------- */
 
     @GetMapping(value = "/materias/{ci}")
     public String listaMateriaS(@PathVariable("ci") int ci, Model model, RedirectAttributes attributes){
@@ -106,8 +122,6 @@ public class ProfesorController {
         
         List<TareaMateria> listaTareas = tMateriaRepository.findTarea(materia);
 
-
-
         model.addAttribute("tareas", listaTareas);
 
         Tarea nuevo = new Tarea();
@@ -127,7 +141,11 @@ public class ProfesorController {
 
     @GetMapping(value = "/materias/tareas/detalles/{tarea}")
     public String verDetalles(@PathVariable("tarea") int tarea, Model model) {
-        tDetalle = dTareaRepository.findTarea(tarea);
+        idTarea = tarea;
+        tDetalle = tareaRepository.findId(tarea);
+
+        model.addAttribute("tareaDetalle", tDetalle);
+
         List<RespuestaTarea> listaRespuestas = respuestaRepository.findAllRespuestas(tarea);
         model.addAttribute("tareaDetalle", tDetalle);
         model.addAttribute("respuestas", listaRespuestas);
@@ -135,8 +153,9 @@ public class ProfesorController {
     }
 
     @PostMapping(value = "/materia/tarea/save")
-    public String asignarTarea(@ModelAttribute Tarea tarea){
+    public String asignarTarea(@ModelAttribute Tarea tarea, RedirectAttributes attributes){
         tareaRepository.save(tarea);
+        attributes.addFlashAttribute("success", "Tarea programada la tarea con exito");
         return "redirect:/views/materia/tarea/" + tarea.getIdMateria();
     }
 
@@ -151,9 +170,36 @@ public class ProfesorController {
     }
 
     @PostMapping(value = "/respuesta/calificar")
-    public String calificarTarea(@ModelAttribute RespuestaTarea respuesta){
+    public String calificarTarea(@Valid @ModelAttribute RespuestaTarea respuesta, BindingResult result, RedirectAttributes attributes, Model model){
+
+        if(result.hasErrors()){
+            log.info("\n\n" + "Se encontraron errores en el formulario");
+            model.addAttribute("respuesta", respuesta);
+
+            return "/views/profesores/tarea_respuesta";
+        }
+
         respuestaRepository.calificarTarea(respuesta);
+        attributes.addFlashAttribute("info", "Tarea calificada con exito");
         return "redirect:/views/materias/tareas/detalles/" + respuesta.getIdTarea();
     }
 
+/* --------------------------      Subir Archivos ------------------------- */
+    @PostMapping(value = "/tareas/detalles/upload")
+    public String subirTarea(@RequestParam("file") MultipartFile file, RedirectAttributes attributes){
+        log.info("\n\n" + tDetalle.getIdMateria() + "\n\n");
+        if (file.isEmpty()) {
+            attributes.addFlashAttribute("warning", "Por favor seleccione un Archivo");
+            return "/views/estudiantes/tarea_detalle_profesor";
+        }
+        try {
+            fileServiceRepository.save(idTarea, file);
+            attributes.addFlashAttribute("success", "Archivo subido con exito");
+            return "redirect:/views/materias/tareas/detalles/" + idTarea;
+        } catch (RuntimeException e) {
+            log.info("\n\n" + tDetalle.getIdMateria() + "\n\n");
+            attributes.addFlashAttribute("danger", "Error al subir archivo");
+            throw new RuntimeException("Error al Subir los Archivos");
+        }
+    }
 }
